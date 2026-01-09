@@ -9,6 +9,7 @@ const CurriculumSection = lazy(() => import("@/components/CurriculumSection"));
 const ScheduleSection = lazy(() => import("@/components/ScheduleSection"));
 const InclusionsSection = lazy(() => import("@/components/InclusionsSection"));
 const CertificationSection = lazy(() => import("@/components/CertificationSection"));
+const FAQSection = lazy(() => import("@/components/FAQSection"));
 const LogisticsSection = lazy(() => import("@/components/LogisticsSection"));
 const PricingSection = lazy(() => import("@/components/PricingSection"));
 const ApplicationForm = lazy(() => import("@/components/ApplicationForm"));
@@ -49,7 +50,9 @@ const Index = () => {
         <PricingSection onPackageSelect={handlePackageSelect} />
         {/* 10. Certification */}
         <CertificationSection />
-        {/* 11. Travel & Logistics */}
+        {/* 11. FAQ */}
+        <FAQSection />
+        {/* 12. Travel & Logistics */}
         <LogisticsSection />
         {/* 12. Application */}
         <ApplicationForm selectedPackage={selectedPackage} />
