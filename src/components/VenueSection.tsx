@@ -180,6 +180,16 @@ const VenueSection = () => {
               </div>
 
             </div>
+            
+            {/* Description text below gallery */}
+            <motion.p 
+              className="text-mauve-900/70 text-lg leading-loose mt-8 text-justify font-light"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Templo finds its home in Sotogrande, a serene coastal enclave in southern Andalusia where sea, landscape, and light shape a slower rhythm of life. Situated between the Mediterranean and the Andalusian hills, the training unfolds in harmony with its surroundings, allowing focused study and quiet integration to extend naturally beyond the practice spaces.
+            </motion.p>
           </motion.div>
         </div>
       </div>
