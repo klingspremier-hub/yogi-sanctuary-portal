@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Globe, Clock, X, ZoomIn } from "lucide-react";
-import certificateImage from "@/assets/certificate.jpeg";
+
+const certificateImage = "/lovable-uploads/331e4290-8205-4512-828e-dff70d6a256f.png";
 
 const CertificationSection = () => {
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
@@ -20,7 +21,7 @@ const CertificationSection = () => {
     {
       icon: Clock,
       title: "50-Hour Training",
-      description: "Authentic Yin Yoga Teacher Training rooted in the functional lineage of Paul Grilley, with depth in practice, anatomy, and methodology."
+      description: "Authentic Yin Yoga Teacher Training rooted in the functional lineage of Paul Grilley."
     }
   ];
 
@@ -57,8 +58,8 @@ const CertificationSection = () => {
               className="lg:col-span-3 space-y-8"
             >
               <div className="space-y-6">
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Upon successful completion, participants receive a <span className="text-foreground font-medium">50-hour Yin Yoga Teacher Training certificate</span> issued by AnneHathaYoga.
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                  Upon successful completion, participants receive a 50-hour Yin Yoga Teacher Training certificate issued by AnneHathaYoga.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   The certification reflects training in Yin Yoga asana, functional anatomy, teaching methodology, Yoga philosophy, and is acknowledged by Yoga Alliance as eligible for Continuing Education (CE) hours.
@@ -86,6 +87,24 @@ const CertificationSection = () => {
                     </div>
                   </motion.div>
                 ))}
+              </div>
+              
+              {/* Yoga Alliance Logos */}
+              <div className="flex items-center justify-center gap-8 pt-8">
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/a351ef5c-a971-42df-ab28-d592c29623a2.png" 
+                    alt="E-RYT 200 Yoga Alliance" 
+                    className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+                <div className="flex flex-col items-center">
+                  <img 
+                    src="/lovable-uploads/a78f47d5-d442-4d8f-af60-a6990f15ba83.png" 
+                    alt="YACEP Yoga Alliance" 
+                    className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                  />
+                </div>
               </div>
             </motion.div>
 
@@ -143,10 +162,12 @@ const CertificationSection = () => {
             className="text-center mt-16"
           >
             <a
-              href="#apply"
+              href="https://www.yinyogattc.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold/90 text-primary font-semibold uppercase tracking-wider text-sm hover:from-primary hover:to-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              Apply Now
+              About AnneHathaYoga
             </a>
           </motion.div>
 
