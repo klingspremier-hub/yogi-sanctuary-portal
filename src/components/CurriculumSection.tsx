@@ -163,9 +163,12 @@ const CurriculumSection = () => {
           <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-6 block">
             The Curriculum
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl italic leading-none mb-8 text-primary-foreground">
+          <h2 className="font-serif text-5xl md:text-7xl italic leading-none mb-6 text-primary-foreground">
             Deepening <span className="not-italic">Your Craft</span>
           </h2>
+          <p className="text-primary-foreground/70 text-lg md:text-xl font-light max-w-2xl mx-auto mb-8">
+            The curriculum unfolds through three interconnected pillars, supporting both technical understanding and embodied practice.
+          </p>
           <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent mx-auto"></div>
         </motion.div>
 
