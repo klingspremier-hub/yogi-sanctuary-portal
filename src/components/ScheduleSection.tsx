@@ -72,7 +72,7 @@ const ScheduleSection = () => {
             The Rhythm
           </span>
           <h2 className="font-serif text-5xl md:text-7xl mb-6 text-primary-foreground">
-            Craft <span className="italic text-gold">& Practice</span>
+            Training Schedule: Craft <span className="italic text-gold">& Practice</span>
           </h2>
           <p className="text-primary-foreground/50 font-light max-w-md mx-auto text-lg mb-8">
             Structured yet spacious, allowing learning<br className="hidden sm:inline" /> and leisure to find a natural balance.
