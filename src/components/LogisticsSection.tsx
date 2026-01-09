@@ -28,7 +28,7 @@ const LogisticsSection = () => {
             The Arrival
           </span>
           <h2 className="mt-4 font-serif text-5xl md:text-7xl font-light text-primary tracking-tight">
-            Travel & Logistics
+            Travel <span className="italic text-gold">& Logistics</span>
           </h2>
           <div className="luxury-divider mt-10 max-w-md mx-auto" />
         </motion.div>

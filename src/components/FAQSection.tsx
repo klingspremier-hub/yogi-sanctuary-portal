@@ -73,8 +73,11 @@ const FAQSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
+          <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-6 block">
+            The Essentials
+          </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary mb-6">
-            Frequently Asked Questions
+            Questions <span className="italic text-gold">& Answers</span>
           </h2>
           <div className="luxury-divider max-w-md mx-auto" />
         </motion.div>

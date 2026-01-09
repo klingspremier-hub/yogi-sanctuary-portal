@@ -159,8 +159,8 @@ const PricingSection = ({
           <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-6 block">
             The Investment
           </span>
-          <h2 className="font-serif text-6xl md:text-8xl italic text-primary-foreground mb-8">
-            Choose Your Path
+          <h2 className="font-serif text-5xl md:text-7xl text-primary-foreground mb-8">
+            Pricing <span className="italic text-gold">& Packages</span>
           </h2>
           <p className="text-primary-foreground/60 text-lg font-light max-w-2xl mx-auto text-center leading-relaxed">
             All packages include seven nights of shared accommodation, 
