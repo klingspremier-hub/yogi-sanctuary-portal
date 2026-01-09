@@ -110,7 +110,7 @@ const IntentionSection = () => {
             Traditional Chinese Medicine meridians, applied functional anatomy, 
             sequencing skills, teaching methodology, and professional codes of conduct.
           </p>
-          <p className="text-foreground/70 text-xl md:text-2xl leading-relaxed mb-16 font-light">
+          <p className="text-foreground/70 text-xl md:text-2xl leading-relaxed mt-8 mb-16 font-light">
             Throughout the week, equal emphasis is placed on embodying the art of 
             holding space, stillness, and awareness within a daily Yin Yoga practice.
           </p>
