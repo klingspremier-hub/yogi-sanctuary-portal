@@ -1,6 +1,7 @@
 import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
-import logo from "@/assets/logo.png";
+import logoWhite from "@/assets/logo-white.png";
+
 const NavLink = ({
   href,
   children
@@ -25,8 +26,8 @@ const Navigation = () => {
     ease: [0.16, 1, 0.3, 1]
   }}>
       <div className="w-full flex justify-between items-center">
-        <a href="https://www.yinyogattc.com" target="_blank" rel="noopener noreferrer" className="flex flex-col group shrink-0">
-          <img alt="AnneHathaYoga" className="h-20 md:h-10 w-auto" src="/lovable-uploads/331e4290-8205-4512-828e-dff70d6a256f.png" />
+        <a href="#top" className="flex flex-col group shrink-0">
+          <img alt="AnneHathaYoga" className="h-20 md:h-10 w-auto" src={logoWhite} />
         </a>
 
         <div className="hidden xl:flex items-center gap-5 text-[11px] uppercase tracking-widest font-bold">
