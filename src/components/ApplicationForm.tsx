@@ -101,19 +101,35 @@ const ApplicationForm = ({
               <label className="block text-[10px] uppercase tracking-[0.2em] text-primary font-bold mb-3 group-focus-within:text-gold transition-colors">
                 First Name
               </label>
-              <input type="text" value={formData.name} onChange={e => setFormData({
-              ...formData,
-              name: e.target.value
-            })} required className="luxury-input" placeholder="Enter your first name" />
+              <input 
+                type="text" 
+                value={formData.name} 
+                onChange={e => setFormData({
+                  ...formData,
+                  name: e.target.value
+                })} 
+                required 
+                title="Please enter your first name"
+                className="luxury-input" 
+                placeholder="Enter your first name" 
+              />
             </div>
             <div className="group">
               <label className="block text-[10px] uppercase tracking-[0.2em] text-primary font-bold mb-3 group-focus-within:text-gold transition-colors">
                 Last Name
               </label>
-              <input type="text" value={formData.lastname} onChange={e => setFormData({
-              ...formData,
-              lastname: e.target.value
-            })} required className="luxury-input" placeholder="Enter your last name" />
+              <input 
+                type="text" 
+                value={formData.lastname} 
+                onChange={e => setFormData({
+                  ...formData,
+                  lastname: e.target.value
+                })} 
+                required 
+                title="Please enter your last name"
+                className="luxury-input" 
+                placeholder="Enter your last name" 
+              />
             </div>
           </div>
 
@@ -121,10 +137,18 @@ const ApplicationForm = ({
             <label className="block text-[10px] uppercase tracking-[0.2em] text-primary font-bold mb-3 group-focus-within:text-gold transition-colors">
               Email Address
             </label>
-            <input type="email" value={formData.email} onChange={e => setFormData({
-            ...formData,
-            email: e.target.value
-          })} required className="luxury-input" placeholder="your@email.com" />
+            <input 
+              type="email" 
+              value={formData.email} 
+              onChange={e => setFormData({
+                ...formData,
+                email: e.target.value
+              })} 
+              required 
+              title="Please enter a valid email address"
+              className="luxury-input" 
+              placeholder="your@email.com" 
+            />
           </div>
 
           <div className="mb-12">
@@ -168,7 +192,7 @@ const ApplicationForm = ({
             }} />
                 Processing...
               </> : <>
-                Confirm Application
+                Submit Application
                 <motion.span className="inline-flex" whileHover={{
               x: 4
             }} transition={{
