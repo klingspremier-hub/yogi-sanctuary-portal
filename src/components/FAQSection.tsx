@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
@@ -112,25 +111,23 @@ const FAQSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12"
+          className="flex flex-col items-center gap-4 mt-12"
         >
           <a
-            href="https://www.annehatha.com/"
+            href="https://www.annehatha.com/#terms"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors duration-300 font-medium animated-border"
+            className="text-muted-foreground hover:text-gold transition-colors duration-300 text-sm tracking-wide"
           >
-            View General Terms & Conditions
-            <ExternalLink className="w-4 h-4" />
+            View General Terms & Conditions →
           </a>
           <a
-            href="https://www.annehatha.com/"
+            href="https://www.annehatha.com/#faq"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-primary hover:text-accent transition-colors duration-300 font-medium animated-border"
+            className="text-muted-foreground hover:text-gold transition-colors duration-300 text-sm tracking-wide"
           >
-            View full FAQ
-            <ExternalLink className="w-4 h-4" />
+            View full FAQ →
           </a>
         </motion.div>
       </div>

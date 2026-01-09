@@ -149,6 +149,24 @@ const CertificationSection = () => {
               Apply Now
             </a>
           </motion.div>
+
+          {/* TTC Experiences Link */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="text-center mt-6"
+          >
+            <a
+              href="https://www.annehatha.com/#reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-gold transition-colors duration-300 text-sm tracking-wide"
+            >
+              Explore previous TTCs & student experiences →
+            </a>
+          </motion.div>
         </div>
       </section>
 

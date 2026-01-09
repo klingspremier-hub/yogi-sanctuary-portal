@@ -185,6 +185,23 @@ const IntentionSection = () => {
               Explore the Training
             </a>
           </motion.div>
+
+          {/* About Teacher Link */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="mt-8"
+          >
+            <a
+              href="https://www.annehatha.com/#about"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/60 hover:text-gold transition-colors duration-300 text-sm tracking-wide"
+            >
+              About the leading teacher →
+            </a>
+          </motion.div>
         </motion.div>
       </div>
     </section>;
