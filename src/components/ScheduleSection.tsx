@@ -142,30 +142,17 @@ const ScheduleSection = () => {
           <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-6 block">
             The Rhythm
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl mb-6 text-primary-foreground">Training Schedule<span className="italic text-gold"></span>
-          </h2>
-          <p className="text-primary-foreground/50 font-light max-w-md mx-auto text-lg mb-8">
-            Structured yet spacious, allowing learning<br className="hidden sm:inline" /> and leisure to find a natural balance.
+          <h2 className="font-serif text-5xl md:text-7xl mb-12 text-primary-foreground">Training Schedule</h2>
+          
+          <p className="text-primary-foreground/60 font-light max-w-2xl mx-auto text-lg leading-relaxed mb-6">
+            A thoughtfully structured rhythm that balances in-depth study with space for rest, integration, and leisure.
           </p>
           
-          {/* Legend for TTC vs Retreat Companions */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm mb-6">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-gold rounded-sm rotate-45"></span>
-              <span className="text-primary-foreground/70">TTC Participants</span>
-              <span className="text-primary-foreground/40 text-xs">— Full training curriculum</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-gold rounded-sm rotate-45"></span>
-              <span className="text-primary-foreground/70">Retreat Companions</span>
-              <span className="text-primary-foreground/40 text-xs">— Practice sessions only</span>
-            </div>
-          </div>
-          <p className="text-primary-foreground/60 text-base max-w-xl mx-auto italic">
-            Non-participating companions may join the morning and evening practice sessions, 
-            meals, and leisure time while TTC participants attend training modules.
+          <p className="text-primary-foreground/50 font-light max-w-2xl mx-auto text-base leading-relaxed">
+            TTC participants follow the full training curriculum, while retreat companions join morning and evening practices and shared meals.
           </p>
-          <div className="luxury-divider max-w-xs mx-auto mt-10" />
+          
+          <div className="luxury-divider max-w-xs mx-auto mt-12" />
         </motion.div>
 
         {/* Sunday Arrival */}
