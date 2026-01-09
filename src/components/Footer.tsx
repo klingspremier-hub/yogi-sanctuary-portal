@@ -89,6 +89,41 @@ const Footer = () => {
           </div>
         </motion.div>
 
+        {/* Quiet Navigation Links */}
+        <motion.div 
+          className="flex flex-wrap items-center justify-center gap-6 mb-8 text-xs text-primary-foreground/40"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1, delay: 0.3 }}
+        >
+          <a 
+            href="https://www.annehatha.com/#about" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-gold transition-colors duration-300"
+          >
+            About Anne van Keulen
+          </a>
+          <span className="text-primary-foreground/20">•</span>
+          <a 
+            href="https://www.annehatha.com/#gallery" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-gold transition-colors duration-300"
+          >
+            Gallery
+          </a>
+          <span className="text-primary-foreground/20">•</span>
+          <a 
+            href="https://www.annehatha.com/#reviews" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-gold transition-colors duration-300"
+          >
+            Student Experiences
+          </a>
+        </motion.div>
+
         {/* Bottom bar */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent mb-8" />
         
