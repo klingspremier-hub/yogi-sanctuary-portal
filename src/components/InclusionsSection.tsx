@@ -52,7 +52,7 @@ const InclusionsSection = () => {
             The Offering
           </span>
           <h2 className="font-serif text-4xl md:text-6xl text-foreground mb-6">
-            Your Complete <span className="italic text-primary">Immersion</span>
+            Immersion <span className="italic text-gold">& Integration</span>
           </h2>
           <p className="text-foreground/60 text-lg font-light max-w-2xl mx-auto">
             A balanced week of focused learning, embodied practice, restorative leisure and nourishing meals, held within a certified training framework.

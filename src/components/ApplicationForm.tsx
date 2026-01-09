@@ -77,7 +77,7 @@ const ApplicationForm = ({
             The Application
           </span>
           <h3 className="font-serif text-5xl md:text-6xl text-primary mb-6 mt-4">
-            Begin Your <span className="italic text-primary">Journey</span>
+            Application <span className="italic text-gold">& Enrollment</span>
           </h3>
           <p className="text-sm text-muted-foreground tracking-wide">Limited to 21 participants · Application required</p>
         </motion.div>

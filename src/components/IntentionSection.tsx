@@ -98,7 +98,7 @@ const IntentionSection = () => {
           </span>
           <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-12 leading-tight">
             Professional Depth <br />
-            <span className="italic font-light text-primary">& Deep Restoration</span>
+            <span className="italic text-gold">& Deep Restoration</span>
           </h2>
           <p className="text-foreground/70 text-xl md:text-2xl leading-relaxed mb-8 font-light">
             Set in the exclusive coastal enclave of Sotogrande, this training goes beyond 

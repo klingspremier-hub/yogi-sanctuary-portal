@@ -43,7 +43,7 @@ const CertificationSection = () => {
               The Achievement
             </span>
             <h2 className="font-serif text-4xl md:text-6xl text-foreground mb-6">
-              Certification
+              Acknowledgement <span className="italic text-gold">& Certification</span>
             </h2>
           </motion.div>
 

@@ -117,7 +117,7 @@ const VenueSection = () => {
               The Sanctuary
             </span>
             <h2 className="font-serif text-5xl md:text-7xl text-primary mb-8 leading-none">
-              Templo <span className="italic font-light text-gold">Sotogrande</span>
+              Templo <span className="italic text-gold">& Sotogrande</span>
             </h2>
             <p className="text-mauve-900/70 text-lg leading-loose mb-6 text-justify font-light">
               We have chosen Templo Sotogrande specifically because it is not a
