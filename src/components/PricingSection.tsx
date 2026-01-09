@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { Star } from "lucide-react";
 const LotusIcon = ({
   className
 }: {
@@ -77,12 +78,22 @@ const PricingCard = ({
 
         {duoPricing && <div className="space-y-6 mb-8">
             {duoPricing.map((item, i) => <div key={i} className={i !== duoPricing.length - 1 ? "border-b border-white/20 pb-5" : ""}>
-                <span className="block text-sm text-white/80 font-medium mb-2">{item.heading}</span>
+                <div className="flex items-start gap-2 mb-2">
+                  <Star className="w-3 h-3 text-gold mt-1 flex-shrink-0" fill="currentColor" />
+                  <span className="text-sm text-white/80 font-medium">{item.heading}</span>
+                </div>
                 <div className="flex items-baseline gap-3 mb-1">
                   <span className="text-3xl font-serif text-white">{item.earlyBirdPrice}</span>
                   <span className="text-lg text-white/40 line-through">{item.regularPrice}</span>
                 </div>
-                <span className="text-xs text-white/60">{item.note}</span>
+                {item.note ? (
+                  <div className="text-xs text-white/60 space-y-0.5">
+                    <span className="block">(€1,695 per person Early Bird /</span>
+                    <span className="block">€1,895 per person Regular)</span>
+                  </div>
+                ) : (
+                  <span className="text-xs uppercase text-green-400 font-bold">Early Bird Price</span>
+                )}
               </div>)}
             {footerNote && <p className="text-sm text-white/70 leading-relaxed pt-2 border-t border-white/20">
                 {footerNote}
