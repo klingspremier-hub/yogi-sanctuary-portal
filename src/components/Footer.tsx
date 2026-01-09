@@ -1,0 +1,115 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { MapPin, Mail, Phone, Instagram, Facebook } from "lucide-react";
+import logoWhite from "@/assets/logo-white.png";
+const Footer = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-50px"
+  });
+  return <footer className="luxury-gradient-dark texture-overlay py-24 px-6 relative overflow-hidden" ref={ref}>
+      {/* Decorative orbs */}
+      <div className="glow-orb w-64 h-64 -bottom-32 -left-32 opacity-30" />
+      <div className="glow-orb w-48 h-48 -top-24 -right-24 opacity-20" />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Logo and tagline */}
+        <motion.div className="text-center mb-16 flex flex-col items-center" initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 1
+      }}>
+          <a href="https://www.yinyogattc.com" target="_blank" rel="noopener noreferrer" className="block mb-6">
+            <img src={logoWhite} alt="AnneHathaYoga" className="h-16 md:h-22 w-auto" />
+          </a>
+          <p className="text-primary-foreground/40 text-sm font-light tracking-widest uppercase">
+            Authentic Yin Yoga Training
+          </p>
+        </motion.div>
+
+        {/* Luxury divider */}
+        <div className="luxury-divider max-w-md mx-auto mb-16" />
+
+        {/* Info grid */}
+        <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-sm font-light text-primary-foreground/60 max-w-4xl mx-auto mb-16" initial={{
+        opacity: 0,
+        y: 20
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 1,
+        delay: 0.2
+      }}>
+          <div className="text-center md:text-left">
+            <h5 className="flex items-center justify-center md:justify-start gap-2 text-gold uppercase tracking-widest text-xs mb-6 font-bold">
+              <MapPin className="w-4 h-4" />
+              Logistics
+            </h5>
+            <div className="space-y-2">
+              <p className="hover:text-gold transition-colors cursor-default">Gibraltar Airport: 20 min</p>
+              <p className="hover:text-gold transition-colors cursor-default">Malaga Airport: 60 min</p>
+              <p className="hover:text-gold transition-colors cursor-default">Jerez Airport: 75 min</p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h5 className="flex items-center justify-center gap-2 text-gold uppercase tracking-widest text-xs mb-6 font-bold">
+              <Mail className="w-4 h-4" />
+              Contact
+            </h5>
+            <div className="space-y-2">
+              <p className="hover:text-gold transition-colors">
+                <a href="mailto:info@yinyogattc.com">info@yinyogattc.com</a>
+              </p>
+              <p className="flex items-center justify-center gap-2 hover:text-gold transition-colors">
+                <Phone className="w-3 h-3" />
+                <a href="tel:+31627088945">+31 6 27088945</a>
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center md:text-right">
+            <h5 className="text-gold uppercase tracking-widest text-xs mb-6 font-bold">
+              Connect
+            </h5>
+            <div className="flex items-center justify-center md:justify-end gap-4">
+              <a href="https://www.instagram.com/annehathayoga/" target="_blank" rel="noopener noreferrer" className="p-3 border border-gold/20 hover:border-gold hover:bg-gold/10 transition-all duration-300 group">
+                <Instagram className="w-4 h-4 text-primary-foreground/60 group-hover:text-gold transition-colors" />
+              </a>
+              <a href="#" className="p-3 border border-gold/20 hover:border-gold hover:bg-gold/10 transition-all duration-300 group">
+                <Facebook className="w-4 h-4 text-primary-foreground/60 group-hover:text-gold transition-colors" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom bar */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent mb-8" />
+        
+        <motion.div className="flex flex-col md:flex-row items-center justify-between gap-4" initial={{
+        opacity: 0
+      }} animate={isInView ? {
+        opacity: 1
+      } : {}} transition={{
+        duration: 1,
+        delay: 0.4
+      }}>
+          <p className="text-[10px] uppercase tracking-widest text-primary-foreground/30">
+            © 2026 AnneHatha Yoga • Sotogrande, Spain
+          </p>
+          <div className="flex items-center gap-6 text-[10px] uppercase tracking-widest text-primary-foreground/30">
+            <a href="#" className="hover:text-gold transition-colors">Privacy</a>
+            <span>•</span>
+            <a href="#" className="hover:text-gold transition-colors">Terms</a>
+          </div>
+        </motion.div>
+      </div>
+    </footer>;
+};
+export default Footer;
