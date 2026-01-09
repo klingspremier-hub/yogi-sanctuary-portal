@@ -108,7 +108,7 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary-foreground to-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </a>
             <a href="#intention" className="flex items-center gap-3 text-primary-foreground/80 hover:text-gold transition-all duration-500 text-[11px] uppercase tracking-widest font-bold group">
-              <span className="animated-border pb-1">EXPLAORE THE TRAINING</span>
+              <span className="animated-border pb-1">EXPLORE THE TRAINING</span>
               <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
             </a>
           </motion.div>
