@@ -27,7 +27,13 @@ const Navigation = () => {
   }}>
       <div className="w-full flex justify-between items-center">
         <a href="#top" className="flex flex-col group shrink-0">
-          <img alt="AnneHathaYoga" className="h-20 md:h-10 w-auto" src={logoWhite} />
+          <img 
+            alt="AnneHathaYoga" 
+            className="h-20 md:h-10 w-auto" 
+            src={logoWhite}
+            width={143}
+            height={80}
+          />
         </a>
 
         <div className="hidden xl:flex items-center gap-5 text-[11px] uppercase tracking-widest font-bold">
