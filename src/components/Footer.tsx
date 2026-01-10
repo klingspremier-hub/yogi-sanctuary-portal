@@ -25,7 +25,7 @@ const Footer = () => {
           transition={{ duration: 1 }}
         >
           <a href="https://www.yinyogattc.com" target="_blank" rel="noopener noreferrer" className="block mb-6">
-            <img src={logoWhite} alt="AnneHathaYoga" className="h-16 md:h-22 w-auto" />
+            <img src={logoWhite} alt="AnneHathaYoga" className="h-16 md:h-22 w-auto" width={143} height={64} />
           </a>
           <p className="text-primary-foreground/40 text-sm font-light tracking-widest uppercase">
             Authentic Yin Yoga Training
@@ -92,6 +92,8 @@ const Footer = () => {
               src="/lovable-uploads/a351ef5c-a971-42df-ab28-d592c29623a2.png" 
               alt="E-RYT 200 Yoga Alliance" 
               className="h-14 w-auto"
+              width={100}
+              height={56}
             />
           </a>
           <a 
@@ -104,6 +106,8 @@ const Footer = () => {
               src="/lovable-uploads/a78f47d5-d442-4d8f-af60-a6990f15ba83.png" 
               alt="YACEP Yoga Alliance" 
               className="h-14 w-auto"
+              width={100}
+              height={56}
             />
           </a>
         </motion.div>
