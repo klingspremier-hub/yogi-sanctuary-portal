@@ -86,14 +86,7 @@ const PricingCard = ({
                   <span className="text-3xl font-serif text-white">{item.earlyBirdPrice}</span>
                   <span className="text-lg text-white/40 line-through">{item.regularPrice}</span>
                 </div>
-                {item.note ? (
-                  <div className="text-xs text-white/60 space-y-0.5">
-                    <span className="block">(€1,695 per person Early Bird /</span>
-                    <span className="block">€1,895 per person Regular)</span>
-                  </div>
-                ) : (
-                  <span className="text-xs uppercase text-green-400 font-bold">Early Bird Price</span>
-                )}
+                <span className="text-xs uppercase text-green-400 font-bold">Early Bird Price</span>
               </div>)}
             {footerNote && <p className="text-sm text-white/70 leading-relaxed pt-2 border-t border-white/20">
                 {footerNote}
