@@ -95,6 +95,8 @@ const CertificationSection = () => {
                     src="/lovable-uploads/a351ef5c-a971-42df-ab28-d592c29623a2.png" 
                     alt="E-RYT 200 Yoga Alliance" 
                     className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                    width={115}
+                    height={64}
                   />
                 </div>
                 <div className="flex flex-col items-center">
@@ -102,6 +104,8 @@ const CertificationSection = () => {
                     src="/lovable-uploads/a78f47d5-d442-4d8f-af60-a6990f15ba83.png" 
                     alt="YACEP Yoga Alliance" 
                     className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                    width={115}
+                    height={64}
                   />
                 </div>
               </div>
@@ -131,6 +135,8 @@ const CertificationSection = () => {
                     draggable={false}
                     loading="lazy"
                     decoding="async"
+                    width={364}
+                    height={258}
                     onContextMenu={(e) => e.preventDefault()}
                   />
                   {/* Watermark overlay */}
