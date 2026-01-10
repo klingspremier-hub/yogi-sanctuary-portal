@@ -93,8 +93,18 @@ const PricingCard = ({
               </p>}
           </div>}
 
-        <button onClick={onSelect} className="block w-full py-4 text-center bg-gold text-primary text-[11px] uppercase tracking-widest hover:bg-gold-glow transition-all font-bold hover:shadow-lg hover:shadow-gold/20">
-          {buttonText}
+        {/* Urgency indicator */}
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          <span className="text-xs text-green-400 font-medium">Only 3 duo spots remaining</span>
+        </div>
+        
+        <button onClick={onSelect} className="block w-full py-4 text-center bg-gold text-primary text-[11px] uppercase tracking-widest hover:bg-gold-glow transition-all font-bold hover:shadow-lg hover:shadow-gold/20 relative overflow-hidden group">
+          <span className="relative z-10">{buttonText}</span>
+          <span className="absolute inset-0 bg-gradient-to-r from-gold-glow via-white/20 to-gold-glow opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity"></span>
         </button>
       </div>;
   }
