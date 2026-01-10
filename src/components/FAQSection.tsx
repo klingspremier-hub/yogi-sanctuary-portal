@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   Accordion,
   AccordionContent,
@@ -66,13 +65,7 @@ const FAQSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16 animate-fade-in">
           <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-6 block">
             The Essentials
           </span>
@@ -80,16 +73,10 @@ const FAQSection = () => {
             Questions <span className="italic text-gold">& Answers</span>
           </h2>
           <div className="luxury-divider max-w-md mx-auto" />
-        </motion.div>
+        </div>
 
         {/* Accordion */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-3xl mx-auto"
-        >
+        <div className="max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.2s' }}>
           <Accordion type="single" collapsible className="space-y-4">
             {faqData.map((item, index) => (
               <AccordionItem
@@ -106,16 +93,10 @@ const FAQSection = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </div>
 
         {/* Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col items-center gap-4 mt-12"
-        >
+        <div className="flex flex-col items-center gap-4 mt-12 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           <a
             href="https://www.annehatha.com/#terms"
             target="_blank"
@@ -132,7 +113,7 @@ const FAQSection = () => {
           >
             View full FAQ →
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
