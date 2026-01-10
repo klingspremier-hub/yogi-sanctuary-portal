@@ -2,10 +2,23 @@ import { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { toast } from "@/hooks/use-toast";
-import { Send, Check, Flower } from "lucide-react";
+import { Send, Check, AlertCircle } from "lucide-react";
+
 interface ApplicationFormProps {
   selectedPackage: string;
 }
+
+interface FormErrors {
+  name?: string;
+  lastname?: string;
+  email?: string;
+}
+
+const validateEmail = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 const ApplicationForm = ({
   selectedPackage
 }: ApplicationFormProps) => {
@@ -21,9 +34,50 @@ const ApplicationForm = ({
     email: "",
     package: selectedPackage || "Shared Room"
   });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [showGeneralError, setShowGeneralError] = useState(false);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = "First name is required";
+    }
+    
+    if (!formData.lastname.trim()) {
+      newErrors.lastname = "Last name is required";
+    }
+    
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    validateForm();
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
+    
+    // Mark all fields as touched
+    setTouched({ name: true, lastname: true, email: true });
+    
+    const isValid = validateForm();
+    
+    if (!isValid) {
+      setShowGeneralError(true);
+      return;
+    }
+    
+    setShowGeneralError(false);
     setIsSubmitting(true);
 
     // Simulate submission
@@ -38,8 +92,11 @@ const ApplicationForm = ({
       email: "",
       package: "Shared Room"
     });
+    setErrors({});
+    setTouched({});
     setIsSubmitting(false);
   };
+
   const packages = [{
     value: "Shared Room",
     label: "Shared Room",
@@ -57,6 +114,12 @@ const ApplicationForm = ({
     label: "Single Occupancy Upgrade",
     icon: "◇"
   }];
+
+  const getInputClassName = (field: keyof FormErrors) => {
+    const hasError = touched[field] && errors[field];
+    return `luxury-input ${hasError ? 'border-2 border-destructive ring-2 ring-destructive/20' : ''}`;
+  };
+
   return <section id="apply" className="py-24 md:py-32 luxury-gradient-light texture-overlay relative overflow-hidden">
       {/* Decorative elements */}
       <div className="glow-orb w-80 h-80 -top-40 -right-40 opacity-40" />
@@ -99,7 +162,7 @@ const ApplicationForm = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
             <div className="group">
               <label className="block text-[10px] uppercase tracking-[0.2em] text-primary font-bold mb-3 group-focus-within:text-gold transition-colors">
-                First Name
+                First Name <span className="text-destructive">*</span>
               </label>
               <input 
                 type="text" 
@@ -107,16 +170,21 @@ const ApplicationForm = ({
                 onChange={e => setFormData({
                   ...formData,
                   name: e.target.value
-                })} 
-                required 
-                title="Please enter your first name"
-                className="luxury-input" 
+                })}
+                onBlur={() => handleBlur('name')}
+                className={getInputClassName('name')} 
                 placeholder="Enter your first name" 
               />
+              {touched.name && errors.name && (
+                <p className="text-destructive text-xs mt-2 flex items-center gap-1">
+                  <AlertCircle className="w-3 h-3" />
+                  {errors.name}
+                </p>
+              )}
             </div>
             <div className="group">
               <label className="block text-[10px] uppercase tracking-[0.2em] text-primary font-bold mb-3 group-focus-within:text-gold transition-colors">
-                Last Name
+                Last Name <span className="text-destructive">*</span>
               </label>
               <input 
                 type="text" 
@@ -124,18 +192,23 @@ const ApplicationForm = ({
                 onChange={e => setFormData({
                   ...formData,
                   lastname: e.target.value
-                })} 
-                required 
-                title="Please enter your last name"
-                className="luxury-input" 
+                })}
+                onBlur={() => handleBlur('lastname')}
+                className={getInputClassName('lastname')} 
                 placeholder="Enter your last name" 
               />
+              {touched.lastname && errors.lastname && (
+                <p className="text-destructive text-xs mt-2 flex items-center gap-1">
+                  <AlertCircle className="w-3 h-3" />
+                  {errors.lastname}
+                </p>
+              )}
             </div>
           </div>
 
           <div className="mb-10 group">
             <label className="block text-[10px] uppercase tracking-[0.2em] text-primary font-bold mb-3 group-focus-within:text-gold transition-colors">
-              Email Address
+              Email Address <span className="text-destructive">*</span>
             </label>
             <input 
               type="email" 
@@ -143,12 +216,17 @@ const ApplicationForm = ({
               onChange={e => setFormData({
                 ...formData,
                 email: e.target.value
-              })} 
-              required 
-              title="Please enter a valid email address"
-              className="luxury-input" 
+              })}
+              onBlur={() => handleBlur('email')}
+              className={getInputClassName('email')} 
               placeholder="your@email.com" 
             />
+            {touched.email && errors.email && (
+              <p className="text-destructive text-xs mt-2 flex items-center gap-1">
+                <AlertCircle className="w-3 h-3" />
+                {errors.email}
+              </p>
+            )}
           </div>
 
           <div className="mb-12">
@@ -171,6 +249,20 @@ const ApplicationForm = ({
                 </label>)}
             </div>
           </div>
+
+          {/* General error message */}
+          {showGeneralError && (
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-6 p-4 bg-destructive/10 border border-destructive/30 rounded-lg flex items-center gap-3"
+            >
+              <AlertCircle className="w-5 h-5 text-destructive flex-shrink-0" />
+              <p className="text-destructive text-sm font-medium">
+                Please fill in all required fields correctly.
+              </p>
+            </motion.div>
+          )}
 
           <motion.button type="submit" disabled={isSubmitting} className="w-full py-6 bg-primary text-primary-foreground text-[12px] uppercase tracking-[0.3em] font-bold hover:bg-primary/90 transition-all shadow-xl btn-luxury disabled:opacity-50 flex items-center justify-center gap-3 group" whileHover={{
           scale: 1.02,
