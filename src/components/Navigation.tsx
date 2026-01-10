@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react";
 import { motion } from "framer-motion";
-import logoWhite from "@/assets/logo-white.png";
+import logoWhite from "@/assets/logo-white.webp";
 
 const NavLink = ({
   href,
