@@ -15,7 +15,16 @@ const HeroSection = () => {
     }} />
       
       <div className="absolute inset-0 z-0">
-        <img src={heroImage} className="w-full h-full object-cover opacity-50 scale-105" alt="Templo Sotogrande Aerial" loading="eager" decoding="async" fetchPriority="high" />
+        <img 
+          src={heroImage} 
+          className="w-full h-full object-cover opacity-50 scale-105" 
+          alt="Templo Sotogrande Aerial" 
+          loading="eager" 
+          decoding="async" 
+          fetchPriority="high"
+          width={1521}
+          height={1071}
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/20 to-primary/90"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-primary/40"></div>
       </div>
