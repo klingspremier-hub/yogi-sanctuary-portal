@@ -141,6 +141,24 @@ const Footer = () => {
           >
             Student Experiences
           </a>
+          <span className="text-primary-foreground/20">•</span>
+          <a 
+            href="https://app.yogaalliance.org/teacherpublicprofile?id=003TR00001HoymfYAB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-gold transition-colors duration-300"
+          >
+            Yoga Alliance Teacher Profile
+          </a>
+          <span className="text-primary-foreground/20">•</span>
+          <a 
+            href="https://app.yogaalliance.org/yaceppublicprofile?id=003TR00001HoymfYAB" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-gold transition-colors duration-300"
+          >
+            YACEP Profile
+          </a>
         </motion.div>
 
         {/* Bottom bar */}
