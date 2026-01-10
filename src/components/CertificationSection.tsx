@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Globe, Clock, X, ZoomIn } from "lucide-react";
-
-const certificateImage = "/lovable-uploads/331e4290-8205-4512-828e-dff70d6a256f.png";
+import certificateImage from "@/assets/spain-certificate.png";
 
 const CertificationSection = () => {
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
