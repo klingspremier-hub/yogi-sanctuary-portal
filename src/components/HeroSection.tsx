@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
-import heroImage from "@/assets/hero-palace.webp";
+import heroImage from "@/assets/hero-palace.jpeg";
 const HeroSection = () => {
   return <header className="relative min-h-screen flex items-center justify-center overflow-hidden luxury-gradient-soft texture-overlay">
       {/* Floating orbs - warmer */}
