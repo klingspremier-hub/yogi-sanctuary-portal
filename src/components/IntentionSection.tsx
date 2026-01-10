@@ -1,21 +1,16 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-const YinYangIcon = ({
-  className
-}: {
-  className?: string;
-}) => <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+const YinYangIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="currentColor">
     <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.3" />
     <path d="M50 2a48 48 0 0 1 0 96 24 24 0 0 1 0-48 24 24 0 0 0 0-48z" />
     <circle cx="50" cy="26" r="6" fill="hsl(var(--gold))" />
     <circle cx="50" cy="74" r="6" />
-  </svg>;
-const LotusIcon = ({
-  className
-}: {
-  className?: string;
-}) => <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+  </svg>
+);
+const LotusIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" className={className} fill="currentColor">
     <ellipse cx="50" cy="70" rx="8" ry="25" opacity="0.6" />
     <ellipse cx="35" cy="65" rx="7" ry="22" transform="rotate(-20 35 65)" opacity="0.5" />
     <ellipse cx="65" cy="65" rx="7" ry="22" transform="rotate(20 65 65)" opacity="0.5" />
@@ -23,54 +18,67 @@ const LotusIcon = ({
     <ellipse cx="78" cy="55" rx="6" ry="18" transform="rotate(40 78 55)" opacity="0.4" />
     <ellipse cx="15" cy="42" rx="5" ry="14" transform="rotate(-60 15 42)" opacity="0.3" />
     <ellipse cx="85" cy="42" rx="5" ry="14" transform="rotate(60 85 42)" opacity="0.3" />
-  </svg>;
+  </svg>
+);
 interface InteractiveCardProps {
   children: React.ReactNode;
   delay?: number;
   isInView: boolean;
 }
-const InteractiveCard = ({
-  children,
-  delay = 0,
-  isInView
-}: InteractiveCardProps) => {
+const InteractiveCard = ({ children, delay = 0, isInView }: InteractiveCardProps) => {
   const [mousePos, setMousePos] = useState({
     x: 50,
-    y: 50
+    y: 50,
   });
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width * 100;
-    const y = (e.clientY - rect.top) / rect.height * 100;
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
     setMousePos({
       x,
-      y
+      y,
     });
   };
-  return <motion.div initial={{
-    opacity: 0,
-    y: 20
-  }} animate={isInView ? {
-    opacity: 1,
-    y: 0
-  } : {}} transition={{
-    duration: 1,
-    delay,
-    ease: [0.16, 1, 0.3, 1]
-  }} className="bg-card/80 backdrop-blur-sm border border-primary/10 p-8 group cursor-pointer hover:border-primary/30 hover:-translate-y-1 transition-all duration-500 shadow-sm hover:shadow-lg" style={{
-    '--mouse-x': `${mousePos.x}%`,
-    '--mouse-y': `${mousePos.y}%`
-  } as React.CSSProperties} onMouseMove={handleMouseMove}>
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 20,
+      }}
+      animate={
+        isInView
+          ? {
+              opacity: 1,
+              y: 0,
+            }
+          : {}
+      }
+      transition={{
+        duration: 1,
+        delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="bg-card/80 backdrop-blur-sm border border-primary/10 p-8 group cursor-pointer hover:border-primary/30 hover:-translate-y-1 transition-all duration-500 shadow-sm hover:shadow-lg"
+      style={
+        {
+          "--mouse-x": `${mousePos.x}%`,
+          "--mouse-y": `${mousePos.y}%`,
+        } as React.CSSProperties
+      }
+      onMouseMove={handleMouseMove}
+    >
       {children}
-    </motion.div>;
+    </motion.div>
+  );
 };
 const IntentionSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-100px"
+    margin: "-100px",
   });
-  return <section id="intention" className="py-24 md:py-40 px-6 luxury-gradient-warm relative overflow-hidden">
+  return (
+    <section id="intention" className="py-24 md:py-40 px-6 luxury-gradient-warm relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 opacity-[0.08]">
         <YinYangIcon className="w-32 h-32 text-primary animate-[spin_30s_linear_infinite]" />
@@ -83,44 +91,49 @@ const IntentionSection = () => {
       </div>
 
       <div ref={ref} className="max-w-5xl mx-auto text-center relative z-10">
-        <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} animate={isInView ? {
-        opacity: 1,
-        y: 0
-      } : {}} transition={{
-        duration: 1,
-        ease: [0.16, 1, 0.3, 1]
-      }}>
-          <span className="text-sm uppercase tracking-editorial font-bold mb-6 block text-gold">
-            The Vision
-          </span>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          animate={
+            isInView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                }
+              : {}
+          }
+          transition={{
+            duration: 1,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+        >
+          <span className="text-sm uppercase tracking-editorial font-bold mb-6 block text-gold">The Vision</span>
           <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-12 leading-tight">
             Professional Depth <br />
             <span className="italic text-gold">& Deep Restoration</span>
           </h2>
           <p className="text-foreground/70 text-xl md:text-2xl leading-relaxed mb-8 font-light">
-            Set in the exclusive coastal enclave of Sotogrande, this training goes beyond 
-            aesthetic alignment. You will explore{" "}
-            <strong className="text-primary">Authentic Functional Yin Yoga</strong> in the 
-            lineage of Paul Grilley, working with over 50 Yin Yoga asanas and eight 
-            myofascial archetypes. The curriculum weaves together ancient Vedic yoga 
-            philosophy through a contemporary lens, the wisdom of Yin and Yang and 
-            Traditional Chinese Medicine meridians, applied functional anatomy, 
-            sequencing skills, teaching methodology, and professional codes of conduct.
+            Set in the exclusive coastal enclave of Sotogrande, this training goes beyond aesthetic alignment. You will
+            explore <strong className="text-primary">Authentic Functional Yin Yoga</strong> in the lineage of Paul
+            Grilley, working with over 50 Yin Yoga asanas and eight myofascial archetypes-The curriculum weaves together
+            ancient Vedic yoga philosophy through a contemporary lens, the wisdom of Yin and Yang and Traditional
+            Chinese Medicine meridians, applied functional anatomy, sequencing skills, teaching methodology, and
+            professional codes of conduct.
           </p>
           <p className="text-foreground/70 text-xl md:text-2xl leading-relaxed mt-8 mb-16 font-light">
-            Throughout the week, equal emphasis is placed on embodying the art of 
-            holding space, stillness, and awareness within a daily Yin Yoga practice.
+            Throughout the week, equal emphasis is placed on embodying the art of holding space, stillness, and
+            awareness within a daily Yin Yoga practice.
           </p>
 
           {/* The Intention Section */}
           <div className="mb-12">
-            <span className="text-primary text-sm uppercase tracking-editorial font-bold mb-4 block">WHO IS THIS TRANING FOR</span>
+            <span className="text-primary text-sm uppercase tracking-editorial font-bold mb-4 block">
+              WHO IS THIS TRANING FOR
+            </span>
             <p className="text-foreground/70 text-lg md:text-xl leading-relaxed font-light">
-              This training is a bridge between professional development and personal restoration. 
-              It is crafted for:
+              This training is a bridge between professional development and personal restoration. It is crafted for:
             </p>
           </div>
 
@@ -131,19 +144,19 @@ const IntentionSection = () => {
               </div>
               <h4 className="font-serif text-2xl text-primary mb-3">Certified Yoga Teachers</h4>
               <p className="text-base leading-relaxed text-foreground/60 group-hover:text-foreground/80 transition-colors">
-                Who wish to integrate Authentic Functional Yin Yoga and fascia-targeted 
-                sequencing into their classes with knowledge, embodied experience, and confidence.
+                Who wish to integrate Authentic Functional Yin Yoga and fascia-targeted sequencing into their classes
+                with knowledge, embodied experience, and confidence.
               </p>
             </InteractiveCard>
-            
+
             <InteractiveCard delay={0.25} isInView={isInView}>
               <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
                 <LotusIcon className="w-10 h-10 text-primary" />
               </div>
               <h4 className="font-serif text-2xl text-primary mb-3">Health & Wellness Professionals</h4>
               <p className="text-base leading-relaxed text-foreground/60 group-hover:text-foreground/80 transition-colors">
-                Seeking to apply anatomical and energetic Yin principles to their existing 
-                therapeutic or movement-based practice.
+                Seeking to apply anatomical and energetic Yin principles to their existing therapeutic or movement-based
+                practice.
               </p>
             </InteractiveCard>
 
@@ -153,20 +166,20 @@ const IntentionSection = () => {
               </div>
               <h4 className="font-serif text-2xl text-primary mb-3">Dedicated Practitioners</h4>
               <p className="text-base leading-relaxed text-foreground/60 group-hover:text-foreground/80 transition-colors">
-                Who want to deepen their understanding of Yogic philosophy, Chakra and 
-                Meridian theory, and their own embodied Yin Yoga practice.
+                Who want to deepen their understanding of Yogic philosophy, Chakra and Meridian theory, and their own
+                embodied Yin Yoga practice.
               </p>
             </InteractiveCard>
-            
+
             <InteractiveCard delay={0.35} isInView={isInView}>
               <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-40 transition-opacity">
                 <LotusIcon className="w-10 h-10 text-primary" />
               </div>
               <h4 className="font-serif text-2xl text-primary mb-3">Soul Seekers</h4>
               <p className="text-base leading-relaxed text-foreground/60 group-hover:text-foreground/80 transition-colors">
-                Feeling called to explore Yin Yoga beyond techniques and shapes, engaging with its 
-                philosophical, anatomical, and embodied layers in a calm, supportive environment 
-                that allows space to learn, rest, and integrate.
+                Feeling called to explore Yin Yoga beyond techniques and shapes, engaging with its philosophical,
+                anatomical, and embodied layers in a calm, supportive environment that allows space to learn, rest, and
+                integrate.
               </p>
             </InteractiveCard>
           </div>
@@ -204,6 +217,7 @@ const IntentionSection = () => {
           </motion.div>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };
 export default IntentionSection;
