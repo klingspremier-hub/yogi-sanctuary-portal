@@ -38,8 +38,9 @@ const Navigation = () => {
 
         <div className="hidden xl:flex items-center gap-5 text-[11px] uppercase tracking-widest font-bold">
           <NavLink href="#top">Overview</NavLink>
-          <NavLink href="#curriculum">Curriculum</NavLink>
+          <NavLink href="#intention">Intention</NavLink>
           <NavLink href="#venue">Venue</NavLink>
+          <NavLink href="#curriculum">Curriculum</NavLink>
           <NavLink href="#schedule">Schedule</NavLink>
           <NavLink href="#pricing">Pricing</NavLink>
           <NavLink href="#certification">Certification</NavLink>

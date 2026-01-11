@@ -36,27 +36,36 @@ const Index = () => {
       <Navigation />
       <HeroSection />
       <Suspense fallback={<SectionLoader />}>
-        {/* 2-4. Concept/Overview, Vision, Intention - combined in IntentionSection */}
-        <IntentionSection />
-        {/* 5. Venue */}
-        <VenueSection />
-        {/* 6. Curriculum */}
-        <CurriculumSection />
-        {/* 7. Schedule */}
-        <ScheduleSection />
-        {/* 8. What's Included */}
-        <InclusionsSection />
-        {/* 9. Pricing & Packages */}
-        <PricingSection onPackageSelect={handlePackageSelect} />
-        {/* 10. Certification */}
-        <CertificationSection />
-        {/* 11. FAQ */}
-        <FAQSection />
-        {/* 12. Travel & Logistics */}
-        <LogisticsSection />
-        {/* 12. Application */}
-        <ApplicationForm selectedPackage={selectedPackage} />
-        {/* 13. Footer */}
+        <section id="intention">
+          <IntentionSection />
+        </section>
+        <section id="venue">
+          <VenueSection />
+        </section>
+        <section id="curriculum">
+          <CurriculumSection />
+        </section>
+        <section id="schedule">
+          <ScheduleSection />
+        </section>
+        <section id="inclusions">
+          <InclusionsSection />
+        </section>
+        <section id="pricing">
+          <PricingSection onPackageSelect={handlePackageSelect} />
+        </section>
+        <section id="certification">
+          <CertificationSection />
+        </section>
+        <section id="faq">
+          <FAQSection />
+        </section>
+        <section id="logistics">
+          <LogisticsSection />
+        </section>
+        <section id="apply">
+          <ApplicationForm selectedPackage={selectedPackage} />
+        </section>
         <Footer />
         <WhatsAppButton />
       </Suspense>
