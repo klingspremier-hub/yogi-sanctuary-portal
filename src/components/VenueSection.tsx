@@ -119,17 +119,26 @@ const VenueSection = () => {
             <h2 className="font-serif text-5xl md:text-7xl text-primary mb-8 leading-none">
               Templo <span className="italic text-gold">& Sotogrande</span>
             </h2>
-            <p className="text-mauve-900/70 text-lg leading-loose mb-6 text-justify font-light">
+            <p className="text-mauve-900/70 text-base leading-loose mb-6 text-justify font-light">
               We have chosen Templo Sotogrande specifically because it is not a
               hotel. It is a <strong className="text-primary">purpose-designed sanctuary</strong>.
             </p>
-            <p className="text-mauve-900/70 text-lg leading-loose mb-10 text-justify font-light">
+            <p className="text-mauve-900/70 text-base leading-loose mb-8 text-justify font-light">
               Unlike traditional resorts, the accommodation consists of five single-story
               residential houses clustered around a saltwater pool and ecological
               gardens. This layout ensures a small-group feel where you can enjoy the 
               'Sangha' in shared courtyards, while still finding a private patio, 
               rooftop terrace, or a comfortable living room or kitchen for study & leisure.
             </p>
+            
+            <a 
+              href="https://templosotogrande.eu/en/exclusive-use-templo-sotogrande#gallery" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block text-primary hover:text-gold underline underline-offset-4 transition-colors duration-300 text-base font-medium"
+            >
+              See all pictures of Templo Sotogrande
+            </a>
             
           </motion.div>
 
@@ -183,7 +192,7 @@ const VenueSection = () => {
             
             {/* Description text below gallery */}
             <motion.p 
-              className="text-mauve-900/70 text-lg leading-loose mt-8 text-justify font-light"
+              className="text-mauve-900/70 text-base leading-loose mt-8 text-justify font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
