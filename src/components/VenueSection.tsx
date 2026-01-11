@@ -190,9 +190,21 @@ const VenueSection = () => {
 
             </div>
             
+            {/* Heading below gallery */}
+            <motion.div
+              className="mt-10 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <span className="text-sm uppercase tracking-editorial font-bold text-gold">
+                SOTOGRANDE & SOUTHERN ANDALUSIA
+              </span>
+            </motion.div>
+            
             {/* Description text below gallery */}
             <motion.p 
-              className="text-mauve-900/70 text-base leading-loose mt-8 text-justify font-light"
+              className="text-mauve-900/70 text-base leading-loose text-justify font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
