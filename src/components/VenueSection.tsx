@@ -131,12 +131,7 @@ const VenueSection = () => {
               rooftop terrace, or a comfortable living room or kitchen for study & leisure.
             </p>
             
-            <a 
-              href="https://templosotogrande.eu/en/exclusive-use-templo-sotogrande#gallery" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block text-primary hover:text-gold underline underline-offset-4 transition-colors duration-300 text-base font-medium"
-            >
+            <a href="https://templosotogrande.eu/en/exclusive-use-templo-sotogrande#gallery" target="_blank" rel="noopener noreferrer" className="inline-block text-primary hover:text-gold underline underline-offset-4 transition-colors duration-300 text-base font-medium">
               See all pictures of Templo Sotogrande
             </a>
             
@@ -191,24 +186,32 @@ const VenueSection = () => {
             </div>
             
             {/* Heading below gallery */}
-            <motion.div
-              className="mt-10 mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className="text-sm uppercase tracking-editorial font-bold text-gold">
-                SOTOGRANDE & SOUTHERN ANDALUSIA
-              </span>
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} animate={isInView ? {
+            opacity: 1,
+            y: 0
+          } : {}} transition={{
+            duration: 0.8,
+            delay: 0.2,
+            ease: [0.16, 1, 0.3, 1]
+          }} className="mt-10 mb-4 text-primary">
+              <span className="text-sm uppercase tracking-editorial font-bold text-primary">SOTOGRANDE </span>
             </motion.div>
             
             {/* Description text below gallery */}
-            <motion.p 
-              className="text-mauve-900/70 text-base leading-loose text-justify font-light"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            >
+            <motion.p className="text-mauve-900/70 text-base leading-loose text-justify font-light" initial={{
+            opacity: 0,
+            y: 20
+          }} animate={isInView ? {
+            opacity: 1,
+            y: 0
+          } : {}} transition={{
+            duration: 0.8,
+            delay: 0.3,
+            ease: [0.16, 1, 0.3, 1]
+          }}>
               Templo finds its home in Sotogrande, a serene coastal enclave in southern Andalusia where sea, landscape, and light shape a slower rhythm of life. Situated between the Mediterranean and the Andalusian hills, the training unfolds in harmony with its surroundings, allowing focused study and quiet integration to extend naturally beyond the practice spaces.
             </motion.p>
           </motion.div>
