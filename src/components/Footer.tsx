@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="luxury-divider max-w-md mx-auto mb-16" />
 
         {/* Info grid - 2 columns now */}
-        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-sm font-light text-primary-foreground/60 max-w-2xl mx-auto mb-16" initial={{
+        <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm font-light text-primary-foreground/60 max-w-2xl mx-auto mb-16" initial={{
         opacity: 0,
         y: 20
       }} animate={isInView ? {
