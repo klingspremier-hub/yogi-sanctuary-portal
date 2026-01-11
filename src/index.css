@@ -78,7 +78,7 @@
 @layer base {
   * { @apply border-border; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground font-sans antialiased text-lg md:text-xl; line-height: 1.75; }
+  body { @apply bg-background text-foreground font-sans antialiased text-base; line-height: 1.75; }
   h1, h2, h3, h4, h5, h6 { line-height: 1.15; }
   p, span, li { @apply font-medium; }
   .text-sm, .text-xs { @apply font-semibold; }
