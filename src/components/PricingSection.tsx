@@ -87,6 +87,7 @@ const PricingCard = ({
                   <span className="text-3xl font-serif text-white">{item.earlyBirdPrice}</span>
                 </div>
                 <span className="text-xs uppercase text-green-400 font-bold">Early Bird Price</span>
+                {item.note && <p className="text-sm text-white/70 leading-relaxed mt-2">{item.note}</p>}
               </div>)}
             {footerNote && <p className="text-sm text-white/70 leading-relaxed pt-4">
                 {footerNote}
@@ -193,13 +194,13 @@ const PricingSection = ({
           heading: "Two TTC participants sharing one room",
           earlyBirdPrice: "€3,390 total",
           regularPrice: "€3,790 total",
-          note: "(€1,695 per person Early Bird / €1,895 per person Regular)"
+          note: "Register before February 28, 2026. Early registration secures a €200 price advantage per person."
         }, {
           heading: "One TTC participant and one non-participating retreat companion",
           earlyBirdPrice: "€2,650 total",
           regularPrice: "€2,850 total",
           note: ""
-        }]} footerNote="Register before February 28, 2026. Early registration secures a €200 price advantage per person." onSelect={() => onPackageSelect("Duo Package")} buttonText="Book as a Duo" />
+        }]} footerNote="Register before February 28, 2026 to secure the Early Bird package rate €200 price advantage per person." onSelect={() => onPackageSelect("Duo Package")} buttonText="Book as a Duo" />
 
           {/* 3. Single Occupancy Upgrade */}
           <PricingCard title="Single Occupancy Upgrade" subtitle="Limited Availability" description="Accommodation is shared by default to support a sense of community. A limited number of private rooms are available for participants who prefer more solitude." price="+€450" priceNote="Surcharge in addition to selected individual package price. Allocated on a first-come basis." onSelect={() => onPackageSelect("Single Upgrade")} buttonText="Inquire About Single Occupancy" />
