@@ -82,25 +82,16 @@ const PricingCard = ({
                   <Star className="w-3 h-3 text-gold mt-1 flex-shrink-0" fill="currentColor" />
                   <span className="text-sm text-white/80 font-medium">{item.heading}</span>
                 </div>
+                <span className="text-lg text-white/40 line-through block mb-1">{item.regularPrice}</span>
                 <div className="flex items-baseline gap-3 mb-1">
                   <span className="text-3xl font-serif text-white">{item.earlyBirdPrice}</span>
-                  <span className="text-lg text-white/40 line-through">{item.regularPrice}</span>
                 </div>
                 <span className="text-xs uppercase text-green-400 font-bold">Early Bird Price</span>
               </div>)}
-            {footerNote && <p className="text-sm text-white/70 leading-relaxed pt-2 border-t border-white/20">
+            {footerNote && <p className="text-sm text-white/70 leading-relaxed pt-4">
                 {footerNote}
               </p>}
           </div>}
-
-        {/* Urgency indicator */}
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          <span className="text-xs text-green-400 font-medium">Only 3 duo spots remaining</span>
-        </div>
         
         <button onClick={onSelect} className="block w-full py-4 text-center bg-gold text-primary text-[11px] uppercase tracking-widest hover:bg-gold-glow transition-all font-bold hover:shadow-lg hover:shadow-gold/20 relative overflow-hidden group">
           <span className="relative z-10">{buttonText}</span>
