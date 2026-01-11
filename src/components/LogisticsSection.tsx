@@ -163,7 +163,7 @@ const LogisticsSection = () => {
               <MessageCircle className="w-5 h-5 text-gold" />
               <span className="text-sm tracking-[0.25em] text-red-500 uppercase font-medium">Please Note</span>
             </div>
-            <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
+            <p className="text-base text-foreground/80 leading-relaxed font-light">
               To maintain flexibility and competitive tuition rates, airport transfers are not included. 
               Our Travel Guide will help you arrange convenient transportation options.
             </p>
