@@ -46,8 +46,8 @@ const Footer = () => {
         duration: 1,
         delay: 0.2
       }}>
-          <div className="text-center md:text-left">
-            <h5 className="flex items-center justify-center md:justify-start gap-2 text-gold uppercase tracking-widest text-xs mb-6 font-bold">
+          <div className="text-center">
+            <h5 className="flex items-center justify-center gap-2 text-gold uppercase tracking-widest text-xs mb-6 font-bold">
               <Mail className="w-4 h-4" />
               Contact
             </h5>
@@ -55,18 +55,18 @@ const Footer = () => {
               <p className="hover:text-gold transition-colors">
                 <a href="mailto:info@yinyogattc.com">info@yinyogattc.com</a>
               </p>
-              <p className="flex items-center justify-center md:justify-start gap-2 hover:text-gold transition-colors">
+              <p className="flex items-center justify-center gap-2 hover:text-gold transition-colors">
                 <Phone className="w-3 h-3" />
                 <a href="tel:+31627088945">+31 6 27088945</a>
               </p>
             </div>
           </div>
 
-          <div className="text-center md:text-right">
+          <div className="text-center">
             <h5 className="text-gold uppercase tracking-widest text-xs mb-6 font-bold">
               Connect
             </h5>
-            <div className="flex items-center justify-center md:justify-end gap-4">
+            <div className="flex items-center justify-center gap-4">
               <a href="https://www.instagram.com/annehathayoga/" target="_blank" rel="noopener noreferrer" className="p-3 border border-gold/20 hover:border-gold hover:bg-gold/10 transition-all duration-300 group">
                 <Instagram className="w-4 h-4 text-primary-foreground/60 group-hover:text-gold transition-colors" />
               </a>
