@@ -32,7 +32,7 @@ const InclusionsSection = () => {
     title: "Small Group Setting",
     description: "Intimate cohort ensuring personalized attention and meaningful connection"
   }];
-  return <section className="py-24 md:py-32 luxury-gradient-warm relative overflow-hidden">
+  return <section id="inclusions" aria-labelledby="inclusions-heading" className="py-24 md:py-32 luxury-gradient-warm relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
@@ -51,7 +51,7 @@ const InclusionsSection = () => {
           <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-6 block">
             The Offering
           </span>
-          <h2 className="font-serif text-4xl mb-6 md:text-7xl text-primary">
+          <h2 id="inclusions-heading" className="font-serif text-4xl mb-6 md:text-7xl text-primary">
             Immersion <span className="italic text-gold">& Integration</span>
           </h2>
           <p className="text-foreground/60 text-lg font-light max-w-2xl mx-auto">

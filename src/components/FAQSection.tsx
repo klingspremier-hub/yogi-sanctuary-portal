@@ -58,7 +58,7 @@ const faqData = [
 
 const FAQSection = () => {
   return (
-    <section aria-labelledby="faq-heading" className="relative py-16 md:py-32 luxury-gradient-light texture-overlay overflow-hidden">
+    <section id="faq" aria-labelledby="faq-heading" className="relative py-16 md:py-32 luxury-gradient-light texture-overlay overflow-hidden">
       {/* Decorative elements - hidden on mobile for performance */}
       <div className="glow-orb w-96 h-96 -top-48 -right-48 opacity-30 hidden md:block" />
       <div className="glow-orb w-64 h-64 bottom-20 -left-32 opacity-20 hidden md:block" />
