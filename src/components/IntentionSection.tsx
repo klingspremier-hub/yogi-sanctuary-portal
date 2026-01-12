@@ -98,13 +98,15 @@ const IntentionSection = () => {
             Professional Depth <br />
             <span className="italic text-gold">& Deep Restoration</span>
           </h2>
-          <p className="text-foreground/70 text-sm md:text-base leading-loose text-justify mb-6 md:mb-8 font-light max-w-3xl mx-auto">
+          <p className="text-foreground/70 text-sm md:text-base leading-loose text-justify font-light max-w-3xl mx-auto">
             Set in the exclusive coastal enclave of Sotogrande, this training goes beyond aesthetic alignment. You will
             explore <strong className="text-primary">Authentic Functional Yin Yoga</strong> in the lineage of Paul
-            Grilley, working with over 50 Yin Yoga asanas and eight myofascial archetypes-The curriculum weaves together
-            ancient Vedic yoga philosophy through a contemporary lens, the wisdom of Yin and Yang and Traditional
-            Chinese Medicine meridians, applied functional anatomy, sequencing skills, teaching methodology, and
-            professional codes of conduct.
+            Grilley, working with over 50 Yin Yoga asanas and eight myofascial archetypes.
+          </p>
+          <p className="text-foreground/70 text-sm md:text-base leading-loose text-justify mt-6 md:mt-8 font-light max-w-3xl mx-auto">
+            The curriculum weaves together ancient Vedic yoga philosophy through a contemporary lens, the wisdom of Yin
+            and Yang and Traditional Chinese Medicine meridians, applied functional anatomy, sequencing skills, teaching
+            methodology, and professional codes of conduct.
           </p>
           <p className="text-foreground/70 text-sm md:text-base leading-loose text-justify mt-6 md:mt-8 mb-10 md:mb-16 font-light max-w-3xl mx-auto">
             Throughout the week, equal emphasis is placed on embodying the art of holding space, stillness, and
