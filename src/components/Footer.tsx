@@ -8,10 +8,10 @@ const Footer = () => {
     once: true,
     margin: "-50px"
   });
-  return <footer className="luxury-gradient-dark texture-overlay py-24 px-6 relative overflow-hidden" ref={ref}>
-      {/* Decorative orbs */}
-      <div className="glow-orb w-64 h-64 -bottom-32 -left-32 opacity-30" />
-      <div className="glow-orb w-48 h-48 -top-24 -right-24 opacity-20" />
+  return <footer className="luxury-gradient-dark texture-overlay py-16 md:py-24 px-4 md:px-6 relative overflow-hidden" ref={ref} aria-label="Site footer">
+      {/* Decorative orbs - hidden on mobile for performance */}
+      <div className="glow-orb w-64 h-64 -bottom-32 -left-32 opacity-30 hidden md:block" />
+      <div className="glow-orb w-48 h-48 -top-24 -right-24 opacity-20 hidden md:block" />
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Logo and tagline */}
@@ -94,34 +94,32 @@ const Footer = () => {
         </motion.div>
 
         {/* Navigation Links */}
-        <motion.div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-xs text-primary-foreground/40" initial={{
-        opacity: 0
-      }} animate={isInView ? {
-        opacity: 1
-      } : {}} transition={{
-        duration: 1,
-        delay: 0.3
-      }}>
-          <a href="https://www.annehatha.com/#about" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
-            About Anne van Keulen
-          </a>
-          <span className="text-primary-foreground/20">•</span>
-          <a href="https://www.annehatha.com/#gallery" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
-            Gallery
-          </a>
-          <span className="text-primary-foreground/20">•</span>
-          <a href="https://www.annehatha.com/#reviews" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
-            Student Experiences
-          </a>
-          <span className="text-primary-foreground/20">•</span>
-          <a href="https://app.yogaalliance.org/teacherpublicprofile?id=003TR00001HoymfYAB" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
-            Yoga Alliance Teacher Profile
-          </a>
-          <span className="text-primary-foreground/20">•</span>
-          <a href="https://app.yogaalliance.org/yaceppublicprofile?id=003TR00001HoymfYAB" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
-            YACEP Profile
-          </a>
-        </motion.div>
+        <nav aria-label="Footer navigation">
+          <motion.div className="flex flex-wrap items-center justify-center gap-3 md:gap-6 mb-8 text-xs text-primary-foreground/40" initial={{
+          opacity: 0
+        }} animate={isInView ? {
+          opacity: 1
+        } : {}} transition={{
+          duration: 1,
+          delay: 0.3
+        }}>
+            <a href="https://www.annehatha.com/#about" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
+              About Anne van Keulen
+            </a>
+            <span className="text-primary-foreground/20 hidden md:inline">•</span>
+            <a href="https://www.annehatha.com/#gallery" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
+              Gallery
+            </a>
+            <span className="text-primary-foreground/20 hidden md:inline">•</span>
+            <a href="https://www.annehatha.com/#reviews" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
+              Student Experiences
+            </a>
+            <span className="text-primary-foreground/20 hidden md:inline">•</span>
+            <a href="https://app.yogaalliance.org/teacherpublicprofile?id=003TR00001HoymfYAB" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
+              Yoga Alliance
+            </a>
+          </motion.div>
+        </nav>
 
         {/* Bottom bar */}
         <div className="h-px w-full bg-gradient-to-r from-transparent via-gold/20 to-transparent mb-8" />

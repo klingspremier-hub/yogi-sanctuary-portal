@@ -60,16 +60,16 @@ const PricingCard = ({
     });
   };
   if (featured) {
-    return <div className="bg-aubergine p-10 flex flex-col relative shadow-2xl scale-105 z-10 group cursor-pointer rounded-lg" style={{
+    return <article className="bg-aubergine p-6 md:p-10 flex flex-col relative shadow-2xl md:scale-105 z-10 group cursor-pointer rounded-lg" style={{
       '--mouse-x': `${mousePos.x}%`,
       '--mouse-y': `${mousePos.y}%`
     } as React.CSSProperties} onMouseMove={handleMouseMove}>
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold via-gold-glow to-gold rounded-t-lg"></div>
         <div className="absolute top-4 right-4 opacity-10 group-hover:opacity-25 transition-opacity">
-          <LotusIcon className="w-16 h-16 text-white" />
+          <LotusIcon className="w-12 md:w-16 h-12 md:h-16 text-white" />
         </div>
-        <h4 className="font-serif text-3xl text-white mb-4">{title}</h4>
-        <p className="text-xs uppercase tracking-widest text-gold font-bold mb-8">
+        <h3 className="font-serif text-2xl md:text-3xl text-white mb-3 md:mb-4">{title}</h3>
+        <p className="text-xs uppercase tracking-widest text-gold font-bold mb-6 md:mb-8">
           {subtitle}
         </p>
         <p className="text-sm text-white/70 leading-relaxed mb-6 flex-grow group-hover:text-white/90 transition-colors">
@@ -98,17 +98,17 @@ const PricingCard = ({
           <span className="relative z-10">{buttonText}</span>
           <span className="absolute inset-0 bg-gradient-to-r from-gold-glow via-white/20 to-gold-glow opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity"></span>
         </button>
-      </div>;
+      </article>;
   }
-  return <div className="yin-card p-10 flex flex-col group cursor-pointer" style={{
+  return <article className="yin-card p-6 md:p-10 flex flex-col group cursor-pointer" style={{
     '--mouse-x': `${mousePos.x}%`,
     '--mouse-y': `${mousePos.y}%`
   } as React.CSSProperties} onMouseMove={handleMouseMove}>
-      <h4 className="font-serif text-3xl text-primary-foreground mb-4 group-hover:text-gold transition-colors">{title}</h4>
-      <p className="text-xs uppercase tracking-widest text-gold font-bold mb-8">
+      <h3 className="font-serif text-2xl md:text-3xl text-primary-foreground mb-3 md:mb-4 group-hover:text-gold transition-colors">{title}</h3>
+      <p className="text-xs uppercase tracking-widest text-gold font-bold mb-6 md:mb-8">
         {subtitle}
       </p>
-      <p className="text-sm text-primary-foreground/60 leading-relaxed mb-8 flex-grow group-hover:text-primary-foreground/80 transition-colors">
+      <p className="text-sm text-primary-foreground/60 leading-relaxed mb-6 md:mb-8 flex-grow group-hover:text-primary-foreground/80 transition-colors">
         {description}
       </p>
 
@@ -131,7 +131,7 @@ const PricingCard = ({
       <button onClick={onSelect} className="block w-full py-4 text-center border border-primary-foreground/20 text-primary-foreground text-[11px] uppercase tracking-widest hover:bg-gold hover:text-primary hover:border-gold transition-all font-bold">
         {buttonText}
       </button>
-    </div>;
+    </article>;
 };
 interface PricingSectionProps {
   onPackageSelect: (pkg: string) => void;
@@ -144,14 +144,14 @@ const PricingSection = ({
     once: true,
     margin: "-100px"
   });
-  return <section id="pricing" className="py-24 md:py-40 bg-primary relative overflow-hidden">
-      {/* Decorative background */}
-      <div className="absolute inset-0 opacity-[0.02]">
+  return <section id="pricing" aria-labelledby="pricing-heading" className="py-16 md:py-40 bg-primary relative overflow-hidden">
+      {/* Decorative background - hidden on mobile for performance */}
+      <div className="absolute inset-0 opacity-[0.02] hidden md:block">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-gold blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-gold blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10" ref={ref}>
         <motion.div className="text-center mb-16" initial={{
         opacity: 0,
         y: 30
@@ -162,20 +162,20 @@ const PricingSection = ({
         duration: 1,
         ease: [0.16, 1, 0.3, 1]
       }}>
-          <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-6 block">
+          <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-4 md:mb-6 block">
             The Investment
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl text-primary-foreground mb-8">
+          <h2 id="pricing-heading" className="font-serif text-3xl sm:text-4xl md:text-7xl text-primary-foreground mb-6 md:mb-8">
             Pricing <span className="italic text-gold">& Packages</span>
           </h2>
-          <p className="text-primary-foreground/60 text-lg font-light max-w-2xl mx-auto text-center leading-relaxed">
+          <p className="text-primary-foreground/60 text-sm md:text-lg font-light max-w-2xl mx-auto text-center leading-relaxed px-2">
             All packages include seven nights of shared accommodation, 
             the 50-hour Yin Yoga Teacher Training, 
             and nourishing local vegetarian full-board catering.
           </p>
         </motion.div>
 
-        <motion.div className="grid grid-cols-1 lg:grid-cols-3 gap-0 items-stretch" initial={{
+        <motion.div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-0 items-stretch" initial={{
         opacity: 0,
         y: 30
       }} animate={isInView ? {
