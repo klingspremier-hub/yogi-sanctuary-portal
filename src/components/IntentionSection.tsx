@@ -94,7 +94,7 @@ const IntentionSection = () => {
         ease: [0.16, 1, 0.3, 1]
       }}>
           <span className="text-sm uppercase tracking-editorial font-bold mb-4 md:mb-6 block text-gold">The Vision</span>
-          <h2 id="intention-heading" className="font-serif text-3xl sm:text-4xl md:text-8xl mb-8 md:mb-12 leading-tight text-primary">
+          <h2 id="intention-heading" className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl mb-8 md:mb-12 leading-snug tracking-tight text-primary">
             Professional Depth <br />
             <span className="italic text-gold">& Deep Restoration</span>
           </h2>
