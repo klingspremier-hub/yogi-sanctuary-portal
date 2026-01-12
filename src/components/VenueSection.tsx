@@ -2,18 +2,34 @@ import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { MapPin, Maximize, Wifi, ChevronLeft, ChevronRight } from "lucide-react";
 
-// Import venue images
-import venuePool from "@/assets/venue-pool.jpg";
-import venueBedroom from "@/assets/venue-bedroom.jpg";
-import venueTwinRoom from "@/assets/venue-twin-room.jpg";
-import venueKitchen from "@/assets/venue-kitchen.jpg";
-import venueAerial from "@/assets/venue-aerial.jpg";
-import venueBathroom from "@/assets/venue-bathroom.jpg";
+// Import venue images (WebP for faster loading)
+import venuePoolView from "@/assets/venue-pool-view.webp";
+import venueBedroom1 from "@/assets/venue-bedroom-1.webp";
+import venueTwinRoom from "@/assets/venue-twin-room.webp";
+import venueKitchen from "@/assets/venue-kitchen.webp";
+import venueAerial from "@/assets/venue-aerial.webp";
+import venueBathroom from "@/assets/venue-bathroom.webp";
+import venueBeachAerial from "@/assets/venue-beach-aerial.webp";
+import venueCoast from "@/assets/venue-coast.webp";
+import venueTerrace from "@/assets/venue-terrace.webp";
+
 const venueImages = [{
-  src: venuePool,
-  alt: "Saltwater pool with Mediterranean views"
+  src: venuePoolView,
+  alt: "Saltwater pool with Mediterranean views and palm trees"
 }, {
-  src: venueBedroom,
+  src: venueTerrace,
+  alt: "Terrace view with pool and ocean"
+}, {
+  src: venueCoast,
+  alt: "Stunning Sotogrande coastline aerial view"
+}, {
+  src: venueBeachAerial,
+  alt: "Aerial view of venue near the beach"
+}, {
+  src: venueAerial,
+  alt: "Aerial view of Templo Sotogrande complex"
+}, {
+  src: venueBedroom1,
   alt: "Comfortable bedroom with warm tones"
 }, {
   src: venueTwinRoom,
@@ -21,9 +37,6 @@ const venueImages = [{
 }, {
   src: venueKitchen,
   alt: "Fully equipped kitchen and dining area"
-}, {
-  src: venueAerial,
-  alt: "Aerial view of Templo Sotogrande"
 }, {
   src: venueBathroom,
   alt: "Elegant bathroom with natural materials"
