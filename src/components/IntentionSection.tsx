@@ -1,16 +1,21 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
-const YinYangIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+const YinYangIcon = ({
+  className
+}: {
+  className?: string;
+}) => <svg viewBox="0 0 100 100" className={className} fill="currentColor">
     <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.3" />
     <path d="M50 2a48 48 0 0 1 0 96 24 24 0 0 1 0-48 24 24 0 0 0 0-48z" />
     <circle cx="50" cy="26" r="6" fill="hsl(var(--gold))" />
     <circle cx="50" cy="74" r="6" />
-  </svg>
-);
-const LotusIcon = ({ className }: { className?: string }) => (
-  <svg viewBox="0 0 100 100" className={className} fill="currentColor">
+  </svg>;
+const LotusIcon = ({
+  className
+}: {
+  className?: string;
+}) => <svg viewBox="0 0 100 100" className={className} fill="currentColor">
     <ellipse cx="50" cy="70" rx="8" ry="25" opacity="0.6" />
     <ellipse cx="35" cy="65" rx="7" ry="22" transform="rotate(-20 35 65)" opacity="0.5" />
     <ellipse cx="65" cy="65" rx="7" ry="22" transform="rotate(20 65 65)" opacity="0.5" />
@@ -18,67 +23,54 @@ const LotusIcon = ({ className }: { className?: string }) => (
     <ellipse cx="78" cy="55" rx="6" ry="18" transform="rotate(40 78 55)" opacity="0.4" />
     <ellipse cx="15" cy="42" rx="5" ry="14" transform="rotate(-60 15 42)" opacity="0.3" />
     <ellipse cx="85" cy="42" rx="5" ry="14" transform="rotate(60 85 42)" opacity="0.3" />
-  </svg>
-);
+  </svg>;
 interface InteractiveCardProps {
   children: React.ReactNode;
   delay?: number;
   isInView: boolean;
 }
-const InteractiveCard = ({ children, delay = 0, isInView }: InteractiveCardProps) => {
+const InteractiveCard = ({
+  children,
+  delay = 0,
+  isInView
+}: InteractiveCardProps) => {
   const [mousePos, setMousePos] = useState({
     x: 50,
-    y: 50,
+    y: 50
   });
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    const x = (e.clientX - rect.left) / rect.width * 100;
+    const y = (e.clientY - rect.top) / rect.height * 100;
     setMousePos({
       x,
-      y,
+      y
     });
   };
-  return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: 20,
-      }}
-      animate={
-        isInView
-          ? {
-              opacity: 1,
-              y: 0,
-            }
-          : {}
-      }
-      transition={{
-        duration: 1,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      className="bg-card/80 backdrop-blur-sm border border-primary/10 p-8 group cursor-pointer hover:border-primary/30 hover:-translate-y-1 transition-all duration-500 shadow-sm hover:shadow-lg"
-      style={
-        {
-          "--mouse-x": `${mousePos.x}%`,
-          "--mouse-y": `${mousePos.y}%`,
-        } as React.CSSProperties
-      }
-      onMouseMove={handleMouseMove}
-    >
+  return <motion.div initial={{
+    opacity: 0,
+    y: 20
+  }} animate={isInView ? {
+    opacity: 1,
+    y: 0
+  } : {}} transition={{
+    duration: 1,
+    delay,
+    ease: [0.16, 1, 0.3, 1]
+  }} className="bg-card/80 backdrop-blur-sm border border-primary/10 p-8 group cursor-pointer hover:border-primary/30 hover:-translate-y-1 transition-all duration-500 shadow-sm hover:shadow-lg" style={{
+    "--mouse-x": `${mousePos.x}%`,
+    "--mouse-y": `${mousePos.y}%`
+  } as React.CSSProperties} onMouseMove={handleMouseMove}>
       {children}
-    </motion.div>
-  );
+    </motion.div>;
 };
 const IntentionSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-100px",
+    margin: "-100px"
   });
-  return (
-    <section id="intention" className="py-24 md:py-40 px-6 luxury-gradient-warm relative overflow-hidden">
+  return <section id="intention" className="py-24 md:py-40 px-6 luxury-gradient-warm relative overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-20 left-10 opacity-[0.08]">
         <YinYangIcon className="w-32 h-32 text-primary animate-[spin_30s_linear_infinite]" />
@@ -91,26 +83,18 @@ const IntentionSection = () => {
       </div>
 
       <div ref={ref} className="max-w-5xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          animate={
-            isInView
-              ? {
-                  opacity: 1,
-                  y: 0,
-                }
-              : {}
-          }
-          transition={{
-            duration: 1,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 30
+      }} animate={isInView ? {
+        opacity: 1,
+        y: 0
+      } : {}} transition={{
+        duration: 1,
+        ease: [0.16, 1, 0.3, 1]
+      }}>
           <span className="text-sm uppercase tracking-editorial font-bold mb-6 block text-gold">The Vision</span>
-          <h2 className="font-serif text-5xl md:text-7xl text-foreground mb-12 leading-tight">
+          <h2 className="font-serif text-5xl md:text-7xl mb-12 leading-tight text-primary">
             Professional Depth <br />
             <span className="italic text-gold">& Deep Restoration</span>
           </h2>
@@ -185,39 +169,36 @@ const IntentionSection = () => {
           </div>
 
           {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-16"
-          >
-            <a
-              href="#curriculum"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold/90 text-primary font-semibold uppercase tracking-wider text-sm hover:from-primary hover:to-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={isInView ? {
+          opacity: 1,
+          y: 0
+        } : {}} transition={{
+          duration: 0.8,
+          delay: 0.5
+        }} className="mt-16">
+            <a href="#curriculum" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold/90 text-primary font-semibold uppercase tracking-wider text-sm hover:from-primary hover:to-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl">
               Explore the Training
             </a>
           </motion.div>
 
           {/* About Teacher Link */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-8"
-          >
-            <a
-              href="https://www.annehatha.com/#about"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground/60 hover:text-gold transition-colors duration-300 text-sm tracking-wide"
-            >
+          <motion.div initial={{
+          opacity: 0
+        }} animate={isInView ? {
+          opacity: 1
+        } : {}} transition={{
+          duration: 0.8,
+          delay: 0.7
+        }} className="mt-8">
+            <a href="https://www.annehatha.com/#about" target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-gold transition-colors duration-300 text-sm tracking-wide">
               About the leading teacher →
             </a>
           </motion.div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
 export default IntentionSection;
