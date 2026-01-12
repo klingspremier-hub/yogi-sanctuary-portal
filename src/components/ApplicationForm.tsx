@@ -264,37 +264,48 @@ const ApplicationForm = ({
             </motion.div>
           )}
 
-          <motion.button type="submit" disabled={isSubmitting} className="w-full py-6 bg-primary text-primary-foreground text-[12px] uppercase tracking-[0.3em] font-bold hover:bg-primary/90 transition-all shadow-xl btn-luxury disabled:opacity-50 flex items-center justify-center text-center gap-3 group" whileHover={{
-          scale: 1.02,
-          boxShadow: "0 20px 40px -15px rgba(0,0,0,0.3)"
-        }} whileTap={{
-          scale: 0.98
-        }} transition={{
-          type: "spring",
-          stiffness: 400,
-          damping: 17
-        }}>
-            {isSubmitting ? <>
-                <motion.div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full" animate={{
-              rotate: 360
-            }} transition={{
-              duration: 1,
-              repeat: Infinity,
-              ease: "linear"
-            }} />
-                Processing...
-              </> : <>
-                Submit Application
-                <motion.span className="inline-flex" whileHover={{
-              x: 4
-            }} transition={{
+          <motion.button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full relative px-4 sm:px-6 py-6 bg-primary text-primary-foreground text-[11px] sm:text-[12px] uppercase tracking-[0.18em] sm:tracking-[0.3em] hover:tracking-[0.18em] sm:hover:tracking-[0.3em] font-bold hover:bg-primary/90 transition-all shadow-xl btn-luxury disabled:opacity-50 flex items-center justify-center group"
+            whileHover={{
+              scale: 1.02,
+              boxShadow: "0 20px 40px -15px rgba(0,0,0,0.3)"
+            }}
+            whileTap={{
+              scale: 0.98
+            }}
+            transition={{
               type: "spring",
               stiffness: 400,
-              damping: 10
-            }}>
+              damping: 17
+            }}
+          >
+            {isSubmitting ? (
+              <>
+                <motion.div
+                  className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                />
+                <span className="w-full text-center whitespace-nowrap">Processing...</span>
+              </>
+            ) : (
+              <>
+                <span className="w-full text-center whitespace-nowrap">Submit Application</span>
+                <motion.span
+                  className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 inline-flex"
+                  whileHover={{ x: 4 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 10
+                  }}
+                >
                   <Send className="w-4 h-4" />
                 </motion.span>
-              </>}
+              </>
+            )}
           </motion.button>
         </motion.form>
       </div>
