@@ -65,7 +65,7 @@ const InteractiveModuleCard = ({
       y
     });
   };
-  return <motion.div className="yin-card p-12 group cursor-pointer" initial={{
+  return <motion.article className="yin-card p-6 md:p-12 group cursor-pointer" initial={{
     opacity: 0,
     y: 30
   }} animate={isInView ? {
@@ -79,11 +79,11 @@ const InteractiveModuleCard = ({
     '--mouse-x': `${mousePos.x}%`,
     '--mouse-y': `${mousePos.y}%`
   } as React.CSSProperties} onMouseMove={handleMouseMove}>
-      <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-30 transition-opacity duration-500">
+      <div className="absolute top-4 right-4 md:top-6 md:right-6 opacity-10 group-hover:opacity-30 transition-opacity duration-500">
         {icon}
       </div>
       {children}
-    </motion.div>;
+    </motion.article>;
 };
 const CurriculumSection = () => {
   const ref = useRef(null);
@@ -131,17 +131,17 @@ const CurriculumSection = () => {
       text: "Understanding teacher responsibilities, ethical boundaries, and the integrity required when guiding others."
     }]
   }];
-  return <section id="curriculum" className="py-24 md:py-40 bg-primary relative overflow-hidden">
-      {/* Decorative floating elements */}
-      <div className="absolute top-32 left-20 opacity-[0.03]">
+  return <section id="curriculum" aria-labelledby="curriculum-heading" className="py-16 md:py-40 bg-primary relative overflow-hidden">
+      {/* Decorative floating elements - hidden on mobile for performance */}
+      <div className="absolute top-32 left-20 opacity-[0.03] hidden md:block">
         <ChakraIcon className="w-64 h-64 text-gold animate-[spin_60s_linear_infinite]" />
       </div>
-      <div className="absolute bottom-32 right-20 opacity-[0.03]">
+      <div className="absolute bottom-32 right-20 opacity-[0.03] hidden md:block">
         <MeridianIcon className="w-48 h-48 text-gold animate-float" />
       </div>
       
-      {/* Moon phases decoration */}
-      <div className="absolute top-20 right-1/4 flex gap-4 opacity-5">
+      {/* Moon phases decoration - hidden on mobile */}
+      <div className="absolute top-20 right-1/4 gap-4 opacity-5 hidden md:flex">
         <MoonIcon className="w-6 h-6 text-gold" phase="crescent" />
         <MoonIcon className="w-6 h-6 text-gold" phase="half" />
         <MoonIcon className="w-6 h-6 text-gold" phase="full" />
@@ -149,7 +149,7 @@ const CurriculumSection = () => {
         <MoonIcon className="w-6 h-6 text-gold" phase="crescent" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10" ref={ref}>
         <motion.div className="text-center mb-24" initial={{
         opacity: 0,
         y: 30
@@ -160,24 +160,24 @@ const CurriculumSection = () => {
         duration: 1,
         ease: [0.16, 1, 0.3, 1]
       }}>
-          <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-6 block">
+          <span className="text-gold text-[11px] uppercase tracking-editorial font-bold mb-4 md:mb-6 block">
             The Curriculum
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl leading-none mb-6 text-primary-foreground">
+          <h2 id="curriculum-heading" className="font-serif text-3xl sm:text-4xl md:text-7xl leading-none mb-4 md:mb-6 text-primary-foreground">
             <span className="not-italic">Deepening</span> <span className="italic font-light text-accent">Your Craft</span>
           </h2>
-          <p className="text-primary-foreground/70 text-lg md:text-xl font-light max-w-2xl mx-auto mb-8">
+          <p className="text-primary-foreground/70 text-base md:text-xl font-light max-w-2xl mx-auto mb-6 md:mb-8 px-2">
             The curriculum unfolds through three interconnected pillars, supporting both technical understanding and embodied practice.
           </p>
-          <div className="w-32 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent mx-auto"></div>
+          <div className="w-24 md:w-32 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent mx-auto"></div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
           {modules.map((module, index) => <InteractiveModuleCard key={module.title} index={index} isInView={isInView} icon={module.icon}>
-              <h4 className="font-serif text-3xl text-gold mb-6 italic group-hover:text-gold-glow transition-colors">
+              <h3 className="font-serif text-2xl md:text-3xl text-gold mb-4 md:mb-6 italic group-hover:text-gold-glow transition-colors">
                 {module.title}
-              </h4>
-              <ul className="space-y-4 text-sm text-primary-foreground/60 font-light">
+              </h3>
+              <ul className="space-y-3 md:space-y-4 text-sm text-primary-foreground/60 font-light">
                 {module.items.map((item, i) => <li key={i} className="group-hover:text-primary-foreground/80 transition-colors">
                     <strong className="text-gold/80">{item.strong}</strong> {item.text}
                   </li>)}

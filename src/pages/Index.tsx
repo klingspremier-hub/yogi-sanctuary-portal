@@ -32,44 +32,24 @@ const Index = () => {
   };
 
   return (
-    <div id="top" className="overflow-x-hidden">
+    <main id="top" className="overflow-x-hidden">
       <Navigation />
       <HeroSection />
       <Suspense fallback={<SectionLoader />}>
-        <section id="intention">
-          <IntentionSection />
-        </section>
-        <section id="venue">
-          <VenueSection />
-        </section>
-        <section id="curriculum">
-          <CurriculumSection />
-        </section>
-        <section id="schedule">
-          <ScheduleSection />
-        </section>
-        <section id="inclusions">
-          <InclusionsSection />
-        </section>
-        <section id="pricing">
-          <PricingSection onPackageSelect={handlePackageSelect} />
-        </section>
-        <section id="certification">
-          <CertificationSection />
-        </section>
-        <section id="faq">
-          <FAQSection />
-        </section>
-        <section id="logistics">
-          <LogisticsSection />
-        </section>
-        <section id="apply">
-          <ApplicationForm selectedPackage={selectedPackage} />
-        </section>
+        <IntentionSection />
+        <VenueSection />
+        <CurriculumSection />
+        <ScheduleSection />
+        <InclusionsSection />
+        <PricingSection onPackageSelect={handlePackageSelect} />
+        <CertificationSection />
+        <FAQSection />
+        <LogisticsSection />
+        <ApplicationForm selectedPackage={selectedPackage} />
         <Footer />
         <WhatsAppButton />
       </Suspense>
-    </div>
+    </main>
   );
 };
 

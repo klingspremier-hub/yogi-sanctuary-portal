@@ -92,17 +92,17 @@ const VenueSection = () => {
   const prevSlide = () => {
     setCurrentIndex(prev => (prev - 1 + venueImages.length) % venueImages.length);
   };
-  return <section id="venue" className="py-24 md:py-40 px-6 bg-cream overflow-hidden relative">
-      {/* Decorative wave pattern */}
-      <div className="absolute bottom-0 left-0 right-0 opacity-10">
+  return <section id="venue" aria-labelledby="venue-heading" className="py-16 md:py-40 px-4 md:px-6 bg-cream overflow-hidden relative">
+      {/* Decorative wave pattern - hidden on mobile for performance */}
+      <div className="absolute bottom-0 left-0 right-0 opacity-10 hidden md:block">
         <WaveIcon className="w-full h-20 text-primary" />
       </div>
-      <div className="absolute top-20 right-10 opacity-5">
+      <div className="absolute top-20 right-10 opacity-5 hidden md:block">
         <WaveIcon className="w-64 h-16 text-gold" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10" ref={ref}>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-start">
           <motion.div className="lg:col-span-5" initial={{
           opacity: 0,
           x: -30
@@ -113,17 +113,17 @@ const VenueSection = () => {
           duration: 1,
           ease: [0.16, 1, 0.3, 1]
         }}>
-            <span className="text-[11px] uppercase tracking-editorial font-bold mb-6 block text-gold">
+            <span className="text-[11px] uppercase tracking-editorial font-bold mb-4 md:mb-6 block text-gold">
               The Sanctuary
             </span>
-            <h2 className="font-serif text-5xl md:text-7xl text-primary mb-8 leading-none">
+            <h2 id="venue-heading" className="font-serif text-3xl sm:text-4xl md:text-7xl text-primary mb-6 md:mb-8 leading-none">
               Templo <span className="italic text-gold">& Sotogrande</span>
             </h2>
-            <p className="text-mauve-900/70 text-base leading-loose mb-6 text-justify font-light">
+            <p className="text-mauve-900/70 text-sm md:text-base leading-loose mb-4 md:mb-6 text-justify font-light">
               We have chosen Templo Sotogrande specifically because it is not a
               hotel. It is a <strong className="text-primary">purpose-designed sanctuary</strong>.
             </p>
-            <p className="text-mauve-900/70 text-base leading-loose mb-8 text-justify font-light">
+            <p className="text-mauve-900/70 text-sm md:text-base leading-loose mb-6 md:mb-8 text-justify font-light">
               Unlike traditional resorts, the accommodation consists of five single-story
               residential houses clustered around a saltwater pool and ecological
               gardens. This layout ensures a small-group feel where you can enjoy the 
