@@ -98,7 +98,7 @@ const IntentionSection = () => {
             Professional Depth <br />
             <span className="italic text-gold">& Deep Restoration</span>
           </h2>
-          <p className="text-foreground/70 text-base md:text-2xl leading-relaxed mb-6 md:mb-8 font-light">
+          <p className="text-foreground/70 text-sm md:text-base leading-loose text-justify mb-6 md:mb-8 font-light max-w-3xl mx-auto">
             Set in the exclusive coastal enclave of Sotogrande, this training goes beyond aesthetic alignment. You will
             explore <strong className="text-primary">Authentic Functional Yin Yoga</strong> in the lineage of Paul
             Grilley, working with over 50 Yin Yoga asanas and eight myofascial archetypes-The curriculum weaves together
@@ -106,7 +106,7 @@ const IntentionSection = () => {
             Chinese Medicine meridians, applied functional anatomy, sequencing skills, teaching methodology, and
             professional codes of conduct.
           </p>
-          <p className="text-foreground/70 text-base md:text-2xl leading-relaxed mt-6 md:mt-8 mb-10 md:mb-16 font-light">
+          <p className="text-foreground/70 text-sm md:text-base leading-loose text-justify mt-6 md:mt-8 mb-10 md:mb-16 font-light max-w-3xl mx-auto">
             Throughout the week, equal emphasis is placed on embodying the art of holding space, stillness, and
             awareness within a daily Yin Yoga practice.
           </p>
@@ -116,7 +116,7 @@ const IntentionSection = () => {
             <span className="text-primary text-sm uppercase tracking-editorial font-bold mb-3 md:mb-4 block">
               WHO IS THIS TRAINING FOR
             </span>
-            <p className="text-foreground/70 text-base md:text-xl leading-relaxed font-light">
+            <p className="text-foreground/70 text-sm md:text-base leading-loose text-justify font-light max-w-3xl mx-auto">
               This training is a bridge between professional development and personal restoration. It is crafted for:
             </p>
           </div>

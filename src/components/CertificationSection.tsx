@@ -58,10 +58,10 @@ const CertificationSection = () => {
             delay: 0.2
           }} className="lg:col-span-3 space-y-8">
               <div className="space-y-6">
-              <p className="text-base text-muted-foreground leading-relaxed">
+              <p className="text-sm md:text-base text-muted-foreground leading-loose text-justify font-light">
                   Upon successful completion, participants receive a 50-hour Yin Yoga Teacher Training certificate issued by AnneHathaYoga.
                 </p>
-                <p className="text-base text-muted-foreground leading-relaxed">
+                <p className="text-sm md:text-base text-muted-foreground leading-loose text-justify font-light">
                   The certification reflects training in Yin Yoga asana, functional anatomy, teaching methodology, Yoga philosophy, and is acknowledged by Yoga Alliance as eligible for Continuing Education (CE) hours.
                 </p>
               </div>

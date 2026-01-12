@@ -166,7 +166,7 @@ const CurriculumSection = () => {
           <h2 id="curriculum-heading" className="font-serif text-3xl sm:text-4xl md:text-7xl leading-none mb-4 md:mb-6 text-primary-foreground">
             <span className="not-italic">Deepening</span> <span className="italic font-light text-accent">Your Craft</span>
           </h2>
-          <p className="text-primary-foreground/70 text-base md:text-xl font-light max-w-2xl mx-auto mb-6 md:mb-8 px-2">
+          <p className="text-primary-foreground/70 text-sm md:text-base leading-loose text-justify font-light max-w-2xl mx-auto mb-6 md:mb-8 px-2">
             The curriculum unfolds through three interconnected pillars, supporting both technical understanding and embodied practice.
           </p>
           <div className="w-24 md:w-32 h-[1px] bg-gradient-to-r from-transparent via-gold/40 to-transparent mx-auto"></div>

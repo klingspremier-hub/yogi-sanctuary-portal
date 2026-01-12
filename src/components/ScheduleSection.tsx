@@ -144,11 +144,11 @@ const ScheduleSection = () => {
           </span>
           <h2 className="font-serif text-5xl md:text-7xl mb-12 text-primary-foreground">Training <span className="italic text-[#f0bc24]">Schedule</span></h2>
           
-          <p className="text-primary-foreground/60 font-light max-w-2xl mx-auto text-lg leading-relaxed mb-6">
+          <p className="text-primary-foreground/60 font-light max-w-2xl mx-auto text-sm md:text-base leading-loose text-justify mb-6">
             A thoughtfully structured rhythm that balances in-depth study with space for rest, integration, and leisure.
           </p>
           
-          <p className="text-primary-foreground/50 font-light max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="text-primary-foreground/50 font-light max-w-2xl mx-auto text-sm md:text-base leading-loose text-justify">
             TTC participants follow the full training curriculum, while retreat companions join morning and evening practices and shared meals.
           </p>
           

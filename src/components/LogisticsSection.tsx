@@ -113,7 +113,7 @@ const LogisticsSection = () => {
             </motion.div>
             
             <motion.p 
-              className="text-lg text-foreground/80 mb-6 leading-relaxed"
+              className="text-sm md:text-base text-foreground/80 mb-6 leading-loose text-justify font-light"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -163,7 +163,7 @@ const LogisticsSection = () => {
               <MessageCircle className="w-5 h-5 text-gold" />
               <span className="text-sm tracking-[0.25em] text-red-500 uppercase font-medium">Please Note</span>
             </div>
-            <p className="text-base text-foreground/80 leading-relaxed font-light">
+            <p className="text-sm md:text-base text-foreground/80 leading-loose text-justify font-light">
               To maintain flexibility and competitive tuition rates, airport transfers are not included. 
               Our Travel Guide will help you arrange convenient transportation options.
             </p>
