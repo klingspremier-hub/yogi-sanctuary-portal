@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-palace.webp";
 const HeroSection = () => {
-  return <header className="relative min-h-screen flex items-center justify-center overflow-hidden luxury-gradient-soft texture-overlay">
+  return <header id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden luxury-gradient-soft texture-overlay">
       {/* Floating orbs - warmer */}
       <div className="glow-orb w-96 h-96 -top-48 -left-48" style={{
       animationDelay: '0s'

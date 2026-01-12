@@ -8,7 +8,7 @@ const Footer = () => {
     once: true,
     margin: "-50px"
   });
-  return <footer className="luxury-gradient-dark texture-overlay py-16 md:py-24 px-4 md:px-6 relative overflow-hidden" ref={ref} aria-label="Site footer">
+  return <footer id="footer" className="luxury-gradient-dark texture-overlay py-16 md:py-24 px-4 md:px-6 relative overflow-hidden" ref={ref} aria-label="Site footer">
       {/* Decorative orbs - hidden on mobile for performance */}
       <div className="glow-orb w-64 h-64 -bottom-32 -left-32 opacity-30 hidden md:block" />
       <div className="glow-orb w-48 h-48 -top-24 -right-24 opacity-20 hidden md:block" />
