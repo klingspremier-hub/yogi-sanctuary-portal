@@ -264,7 +264,7 @@ const ApplicationForm = ({
             </motion.div>
           )}
 
-          <motion.button type="submit" disabled={isSubmitting} className="w-full py-6 bg-primary text-primary-foreground text-[12px] uppercase tracking-[0.3em] font-bold hover:bg-primary/90 transition-all shadow-xl btn-luxury disabled:opacity-50 flex items-center justify-center gap-3 group" whileHover={{
+          <motion.button type="submit" disabled={isSubmitting} className="w-full py-6 bg-primary text-primary-foreground text-[12px] uppercase tracking-[0.3em] font-bold hover:bg-primary/90 transition-all shadow-xl btn-luxury disabled:opacity-50 flex items-center justify-center text-center gap-3 group" whileHover={{
           scale: 1.02,
           boxShadow: "0 20px 40px -15px rgba(0,0,0,0.3)"
         }} whileTap={{
