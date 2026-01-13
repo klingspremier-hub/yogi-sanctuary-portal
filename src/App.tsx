@@ -13,7 +13,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/yin-yoga-teacher-training/spain/sotogrande/may-2026">
+      <BrowserRouter basename={import.meta.env.MODE === 'production' ? '/yin-yoga-teacher-training/spain/sotogrande/may-2026' : ''}>
         <Routes>
           <Route path="/" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
