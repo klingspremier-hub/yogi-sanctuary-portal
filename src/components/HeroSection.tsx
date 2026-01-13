@@ -3,14 +3,14 @@ import { ArrowDown, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-palace-optimized.webp";
 const HeroSection = () => {
   return <header id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden luxury-gradient-soft texture-overlay">
-      {/* Floating orbs - warmer */}
-      <div className="glow-orb w-96 h-96 -top-48 -left-48" style={{
+      {/* Floating orbs - hidden on mobile for performance */}
+      <div className="glow-orb w-96 h-96 -top-48 -left-48 hidden md:block" style={{
       animationDelay: '0s'
     }} />
-      <div className="glow-orb w-64 h-64 top-1/4 -right-32" style={{
+      <div className="glow-orb w-64 h-64 top-1/4 -right-32 hidden md:block" style={{
       animationDelay: '2s'
     }} />
-      <div className="glow-orb w-80 h-80 bottom-0 left-1/4" style={{
+      <div className="glow-orb w-80 h-80 bottom-0 left-1/4 hidden md:block" style={{
       animationDelay: '4s'
     }} />
       

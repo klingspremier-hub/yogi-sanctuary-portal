@@ -93,7 +93,7 @@ const Navigation = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-[85] bg-primary/98 backdrop-blur-lg flex flex-col items-center justify-center"
+            className="fixed inset-0 z-[85] bg-primary flex flex-col items-center justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
