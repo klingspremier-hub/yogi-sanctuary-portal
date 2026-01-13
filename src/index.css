@@ -187,3 +187,20 @@
     100% { box-shadow: 0 0 0 0px rgba(37, 211, 102, 0); }
   }
 }
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  .glow-orb {
+    display: none !important;
+  }
+  
+  .glass-nav {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  
+  .backdrop-blur-xl {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}

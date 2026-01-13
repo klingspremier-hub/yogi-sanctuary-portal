@@ -41,15 +41,18 @@ const venueImages = [{
   src: venueBathroom,
   alt: "Elegant bathroom with natural materials"
 }];
-const WaveIcon = ({
-  className
-}: {
-  className?: string;
-}) => <svg viewBox="0 0 200 50" className={className} fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M0 25 Q25 10 50 25 T100 25 T150 25 T200 25" opacity="0.6" />
-    <path d="M0 35 Q25 20 50 35 T100 35 T150 35 T200 35" opacity="0.4" />
-    <path d="M0 45 Q25 30 50 45 T100 45 T150 45 T200 45" opacity="0.2" />
-  </svg>;
+import { forwardRef } from "react";
+
+const WaveIcon = forwardRef<SVGSVGElement, { className?: string }>(
+  ({ className }, ref) => (
+    <svg ref={ref} viewBox="0 0 200 50" className={className} fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M0 25 Q25 10 50 25 T100 25 T150 25 T200 25" opacity="0.6" />
+      <path d="M0 35 Q25 20 50 35 T100 35 T150 35 T200 35" opacity="0.4" />
+      <path d="M0 45 Q25 30 50 45 T100 45 T150 45 T200 45" opacity="0.2" />
+    </svg>
+  )
+);
+WaveIcon.displayName = 'WaveIcon';
 interface FeatureCardProps {
   icon: React.ReactNode;
   text: string;
