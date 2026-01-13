@@ -2,6 +2,12 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /yin-yoga-teacher-training/spain/sotogrande/may-2026/
+
+  # Ensure directory requests serve the SPA entry file
+  DirectoryIndex index.html
+
+  # Avoid SPA 404 when someone visits /index.html directly
+  RewriteRule ^index\.html$ /yin-yoga-teacher-training/spain/sotogrande/may-2026/ [R=301,L]
   
   # Force HTTPS (uncomment if needed)
   # RewriteCond %{HTTPS} off
