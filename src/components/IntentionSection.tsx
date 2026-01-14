@@ -244,7 +244,7 @@ const IntentionSection = () => {
             className="mt-8"
           >
             <a
-              href="https://www.youtube.com"
+              href="https://yinyogattc.com/#about"
               target="_blank"
               rel="noopener noreferrer"
               className="text-foreground/60 hover:text-gold transition-colors duration-300 text-sm tracking-wide"
