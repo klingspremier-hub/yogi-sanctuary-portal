@@ -111,7 +111,7 @@ const FAQSection = () => {
         {/* Links */}
         <div className="flex flex-col items-center gap-4 mt-12 animate-fade-in" style={{ animationDelay: "0.4s" }}>
           <a
-            href="https://www.annehatha.com/#terms"
+            href="http://yinyogattc.com/terms"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-gold transition-colors duration-300 text-sm tracking-wide"
