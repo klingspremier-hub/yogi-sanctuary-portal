@@ -58,51 +58,48 @@ const CertificationSection = () => {
           }} transition={{
             duration: 0.8,
             delay: 0.2
-          }} className="lg:col-span-3 space-y-8">
-              <div className="space-y-6">
-              <p className="text-sm md:text-base text-muted-foreground leading-loose text-justify font-light">
+          }} className="lg:col-span-3 flex flex-col justify-center">
+              {/* Heading and Description */}
+              <div className="space-y-4 mb-8">
+                <p className="text-sm md:text-base text-muted-foreground leading-loose text-left font-light">
                   Upon successful completion, participants receive a 50-hour Yin Yoga Teacher Training certificate issued by AnneHathaYoga.
                 </p>
-                <p className="text-sm md:text-base text-muted-foreground leading-loose text-justify font-light">
+                <p className="text-sm md:text-base text-muted-foreground leading-loose text-left font-light">
                   The certification reflects training in Yin Yoga asana, functional anatomy, teaching methodology, Yoga philosophy, and is acknowledged by Yoga Alliance as eligible for Continuing Education (CE) hours.
                 </p>
               </div>
 
-              {/* Benefits Cards - Horizontal with refined styling */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4">
-                {benefits.map((benefit, index) => <motion.div key={benefit.title} initial={{
-                opacity: 0,
-                y: 20
-              }} whileInView={{
-                opacity: 1,
-                y: 0
-              }} whileHover={{
-                y: -6,
-                boxShadow: "0 15px 35px -10px rgba(212, 175, 55, 0.3)",
-                backgroundColor: "rgba(212, 175, 55, 0.1)"
-              }} viewport={{
-                once: true
-              }} transition={{
-                duration: 0.15
-              }} className="group relative p-5 rounded-xl bg-background/50 backdrop-blur-sm border border-gold/10 hover:border-gold/30 cursor-pointer transition-all duration-150">
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              {/* Benefits Cards - Equal height, centered */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 justify-items-center">
+                {benefits.map((benefit) => (
+                  <motion.div 
+                    key={benefit.title} 
+                    initial={{ opacity: 0, y: 20 }} 
+                    whileInView={{ opacity: 1, y: 0 }} 
+                    whileHover={{
+                      y: -6,
+                      boxShadow: "0 15px 35px -10px rgba(212, 175, 55, 0.3)",
+                      backgroundColor: "rgba(212, 175, 55, 0.1)"
+                    }} 
+                    viewport={{ once: true }} 
+                    transition={{ duration: 0.15 }} 
+                    className="group relative p-5 rounded-xl bg-background/50 backdrop-blur-sm border border-gold/10 hover:border-gold/30 cursor-pointer transition-all duration-150 w-full h-full flex flex-col"
+                  >
+                    <div className="flex flex-col items-center text-center flex-1">
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shrink-0">
                         <benefit.icon className="w-6 h-6 text-gold" />
                       </div>
                       <h4 className="font-semibold text-foreground mb-2 text-sm">{benefit.title}</h4>
                       <p className="text-muted-foreground text-xs leading-relaxed">{benefit.description}</p>
                     </div>
-                  </motion.div>)}
+                  </motion.div>
+                ))}
               </div>
               
-              {/* Yoga Alliance Logos */}
-              <div className="flex items-center justify-center gap-8 pt-8">
-                <div className="flex flex-col items-center">
-                  <img src={eryt200Logo} alt="E-RYT 200 Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
-                </div>
-                <div className="flex flex-col items-center">
-                  <img src={yacepLogo} alt="YACEP Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
-                </div>
+              {/* Yoga Alliance Logos - Centered with consistent spacing */}
+              <div className="flex items-center justify-center gap-10 pt-10">
+                <img src={eryt200Logo} alt="E-RYT 200 Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
+                <img src={yacepLogo} alt="YACEP Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
               </div>
             </motion.div>
 
