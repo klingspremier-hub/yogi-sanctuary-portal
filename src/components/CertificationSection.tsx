@@ -157,8 +157,8 @@ const CertificationSection = () => {
           duration: 0.8,
           delay: 0.5
         }} className="text-center mt-16">
-            <a href="https://www.yinyogattc.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold/90 text-primary font-semibold uppercase tracking-wider text-sm hover:from-primary hover:to-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl">
-              About AnneHathaYoga
+            <a href="https://yinyogattc.com/#about" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-gold to-gold/90 text-primary font-semibold uppercase tracking-wider text-sm hover:from-primary hover:to-primary hover:text-primary-foreground transition-all duration-300 shadow-lg hover:shadow-xl">
+              About the Leading Teacher
             </a>
           </motion.div>
 
@@ -173,7 +173,7 @@ const CertificationSection = () => {
           duration: 0.8,
           delay: 0.7
         }} className="text-center mt-6">
-            <a href="https://www.annehatha.com/#reviews" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-gold transition-colors duration-300 text-sm tracking-wide">
+            <a href="https://yinyogattc.com/#testimonials" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-gold transition-colors duration-300 text-sm tracking-wide">
               Explore previous TTCs & student experiences →
             </a>
           </motion.div>
