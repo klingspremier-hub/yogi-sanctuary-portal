@@ -58,30 +58,18 @@ const CertificationSection = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col justify-center order-2 lg:order-1"
             >
-              {/* Description Card */}
-              <motion.div
-                className="relative p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-gold/10 mb-8 overflow-hidden group hover:border-gold/30 transition-all duration-500"
-                whileHover={{ y: -4, boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 30px hsl(42 85% 60% / 0.08)" }}
-              >
-                {/* Texture overlay */}
-                <div className="absolute inset-0 opacity-[0.02] pointer-events-none" 
-                  style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E\")" }} 
-                />
-                {/* Corner accent */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-gold/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="space-y-4 relative z-10">
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-light">
-                    Upon successful completion, participants receive a 50-hour Yin Yoga Teacher Training certificate issued by AnneHathaYoga.
-                  </p>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-light">
-                    The certification reflects training in Yin Yoga asana, functional anatomy, teaching methodology, Yoga philosophy, and is acknowledged by Yoga Alliance as eligible for Continuing Education (CE) hours.
-                  </p>
-                </div>
-              </motion.div>
+              {/* Description - No card */}
+              <div className="space-y-4 mb-6">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-light">
+                  Upon successful completion, participants receive a 50-hour Yin Yoga Teacher Training certificate issued by AnneHathaYoga.
+                </p>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-light">
+                  The certification reflects training in Yin Yoga asana, functional anatomy, teaching methodology, Yoga philosophy, and is acknowledged by Yoga Alliance as eligible for Continuing Education (CE) hours.
+                </p>
+              </div>
 
-              {/* Benefits Cards */}
-              <div className="grid gap-4 mb-10">
+              {/* Benefits Cards - Compact */}
+              <div className="grid gap-3 mb-6">
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={benefit.title}
@@ -90,11 +78,11 @@ const CertificationSection = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.1 * index }}
                     whileHover={{ 
-                      y: -4, 
+                      y: -2, 
                       scale: 1.01,
-                      boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 0 40px hsl(42 85% 60% / 0.1)" 
+                      boxShadow: "0 15px 30px -8px rgba(0, 0, 0, 0.1), 0 0 30px hsl(42 85% 60% / 0.08)" 
                     }}
-                    className="relative p-5 rounded-xl bg-card/70 backdrop-blur-sm border border-gold/10 overflow-hidden group cursor-pointer hover:border-gold/30 transition-all duration-500"
+                    className="relative p-4 rounded-xl bg-card/70 backdrop-blur-sm border border-gold/10 overflow-hidden group cursor-pointer hover:border-gold/30 transition-all duration-500"
                   >
                     {/* Background texture */}
                     <div className="absolute inset-0 opacity-[0.015] pointer-events-none" 
@@ -107,12 +95,12 @@ const CertificationSection = () => {
                     {/* Animated border accent */}
                     <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-gold/60 via-gold to-gold/60 w-0 group-hover:w-full transition-all duration-700" />
                     
-                    <div className="flex items-start gap-4 relative z-10">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/20 flex items-center justify-center shrink-0 group-hover:from-gold/25 group-hover:to-gold/10 group-hover:border-gold/40 group-hover:shadow-[0_0_20px_hsl(42_85%_60%_/_0.2)] transition-all duration-500">
-                        <benefit.icon className="w-5 h-5 text-gold group-hover:scale-110 transition-transform duration-300" />
+                    <div className="flex items-start gap-3 relative z-10">
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/20 flex items-center justify-center shrink-0 group-hover:from-gold/25 group-hover:to-gold/10 group-hover:border-gold/40 group-hover:shadow-[0_0_15px_hsl(42_85%_60%_/_0.15)] transition-all duration-500">
+                        <benefit.icon className="w-4 h-4 text-gold group-hover:scale-110 transition-transform duration-300" />
                       </div>
                       <div>
-                        <h4 className="font-medium text-foreground text-sm mb-1 group-hover:text-gold transition-colors duration-300">
+                        <h4 className="font-medium text-foreground text-sm mb-0.5 group-hover:text-gold transition-colors duration-300">
                           {benefit.title}
                         </h4>
                         <p className="text-muted-foreground text-xs leading-relaxed">
@@ -124,19 +112,19 @@ const CertificationSection = () => {
                 ))}
               </div>
 
-              {/* Yoga Alliance Badges with Glow */}
+              {/* Yoga Alliance Badges with Glow - Wider */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex items-center justify-center lg:justify-start gap-6"
+                className="flex items-center justify-center lg:justify-start gap-4"
               >
                 <motion.div 
-                  className="relative p-4 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden"
+                  className="relative px-8 py-4 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex-1 max-w-[180px] flex items-center justify-center"
                   whileHover={{ 
-                    y: -4,
-                    boxShadow: "0 15px 35px -8px rgba(0, 0, 0, 0.1), 0 0 50px hsl(42 85% 60% / 0.15)"
+                    y: -3,
+                    boxShadow: "0 12px 30px -6px rgba(0, 0, 0, 0.1), 0 0 40px hsl(42 85% 60% / 0.12)"
                   }}
                 >
                   {/* Badge glow effect */}
@@ -146,17 +134,17 @@ const CertificationSection = () => {
                   <img
                     src={eryt200Logo}
                     alt="E-RYT 200 Yoga Alliance"
-                    className="h-14 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                    className="h-12 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                     width={115}
                     height={64}
                   />
                 </motion.div>
 
                 <motion.div 
-                  className="relative p-4 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden"
+                  className="relative px-8 py-4 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex-1 max-w-[180px] flex items-center justify-center"
                   whileHover={{ 
-                    y: -4,
-                    boxShadow: "0 15px 35px -8px rgba(0, 0, 0, 0.1), 0 0 50px hsl(42 85% 60% / 0.15)"
+                    y: -3,
+                    boxShadow: "0 12px 30px -6px rgba(0, 0, 0, 0.1), 0 0 40px hsl(42 85% 60% / 0.12)"
                   }}
                 >
                   {/* Badge glow effect */}
@@ -166,7 +154,7 @@ const CertificationSection = () => {
                   <img
                     src={yacepLogo}
                     alt="YACEP Yoga Alliance"
-                    className="h-14 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                    className="h-12 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                     width={115}
                     height={64}
                   />
