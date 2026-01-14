@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Globe, Clock, X, ZoomIn } from "lucide-react";
 import certificateImage from "@/assets/spain-certificate.png";
+import eryt200Logo from "@/assets/eryt200.png";
+import yacepLogo from "@/assets/yacep.png";
 const CertificationSection = () => {
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
   const benefits = [{
@@ -96,10 +98,10 @@ const CertificationSection = () => {
               {/* Yoga Alliance Logos */}
               <div className="flex items-center justify-center gap-8 pt-8">
                 <div className="flex flex-col items-center">
-                  <img src="/lovable-uploads/a351ef5c-a971-42df-ab28-d592c29623a2.png" alt="E-RYT 200 Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
+                  <img src={eryt200Logo} alt="E-RYT 200 Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
                 </div>
                 <div className="flex flex-col items-center">
-                  <img src="/lovable-uploads/a78f47d5-d442-4d8f-af60-a6990f15ba83.png" alt="YACEP Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
+                  <img src={yacepLogo} alt="YACEP Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
                 </div>
               </div>
             </motion.div>
