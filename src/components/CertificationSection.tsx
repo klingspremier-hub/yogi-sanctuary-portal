@@ -121,7 +121,7 @@ const CertificationSection = () => {
                 className="grid grid-cols-2 gap-3"
               >
                 <motion.div 
-                  className="relative py-5 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex items-center justify-center"
+                  className="relative py-5 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-3"
                   whileHover={{ 
                     y: -3,
                     boxShadow: "0 12px 30px -6px rgba(0, 0, 0, 0.1), 0 0 40px hsl(42 85% 60% / 0.12)"
@@ -138,10 +138,11 @@ const CertificationSection = () => {
                     width={115}
                     height={64}
                   />
+                  <span className="relative z-10 text-xs font-medium tracking-wider text-muted-foreground uppercase">E-RYT 200</span>
                 </motion.div>
 
                 <motion.div 
-                  className="relative py-5 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex items-center justify-center"
+                  className="relative py-5 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex flex-col items-center justify-center gap-3"
                   whileHover={{ 
                     y: -3,
                     boxShadow: "0 12px 30px -6px rgba(0, 0, 0, 0.1), 0 0 40px hsl(42 85% 60% / 0.12)"
@@ -158,6 +159,7 @@ const CertificationSection = () => {
                     width={115}
                     height={64}
                   />
+                  <span className="relative z-10 text-xs font-medium tracking-wider text-muted-foreground uppercase">YACEP</span>
                 </motion.div>
               </motion.div>
             </motion.div>
