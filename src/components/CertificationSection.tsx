@@ -45,84 +45,91 @@ const CertificationSection = () => {
             </h2>
           </motion.div>
 
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Column - Text Content */}
-            <motion.div initial={{
-            opacity: 0,
-            x: -40
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.8,
-            delay: 0.2
-          }} className="lg:col-span-3 flex flex-col justify-center">
-              {/* Heading and Description */}
-              <div className="space-y-4 mb-8">
-                <p className="text-sm md:text-base text-muted-foreground leading-loose text-left font-light">
+            <motion.div 
+              initial={{ opacity: 0, x: -40 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.8, delay: 0.2 }} 
+              className="flex flex-col justify-center order-2 lg:order-1"
+            >
+              {/* Description */}
+              <div className="space-y-5 mb-10">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-light">
                   Upon successful completion, participants receive a 50-hour Yin Yoga Teacher Training certificate issued by AnneHathaYoga.
                 </p>
-                <p className="text-sm md:text-base text-muted-foreground leading-loose text-left font-light">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-light">
                   The certification reflects training in Yin Yoga asana, functional anatomy, teaching methodology, Yoga philosophy, and is acknowledged by Yoga Alliance as eligible for Continuing Education (CE) hours.
                 </p>
               </div>
 
-              {/* Benefits Cards - Equal height, centered */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 justify-items-center">
-                {benefits.map((benefit) => (
+              {/* Benefits List - Clean vertical layout */}
+              <div className="space-y-4 mb-10">
+                {benefits.map((benefit, index) => (
                   <motion.div 
                     key={benefit.title} 
-                    initial={{ opacity: 0, y: 20 }} 
-                    whileInView={{ opacity: 1, y: 0 }} 
-                    whileHover={{
-                      y: -6,
-                      boxShadow: "0 15px 35px -10px rgba(212, 175, 55, 0.3)",
-                      backgroundColor: "rgba(212, 175, 55, 0.1)"
-                    }} 
+                    initial={{ opacity: 0, x: -20 }} 
+                    whileInView={{ opacity: 1, x: 0 }} 
                     viewport={{ once: true }} 
-                    transition={{ duration: 0.15 }} 
-                    className="group relative p-5 rounded-xl bg-background/50 backdrop-blur-sm border border-gold/10 hover:border-gold/30 cursor-pointer transition-all duration-150 w-full h-full flex flex-col"
+                    transition={{ duration: 0.5, delay: 0.1 * index }} 
+                    className="flex items-start gap-4 group"
                   >
-                    <div className="flex flex-col items-center text-center flex-1">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shrink-0">
-                        <benefit.icon className="w-6 h-6 text-gold" />
-                      </div>
-                      <h4 className="font-semibold text-foreground mb-2 text-sm">{benefit.title}</h4>
+                    <div className="w-10 h-10 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-colors duration-300">
+                      <benefit.icon className="w-5 h-5 text-gold" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-foreground text-sm mb-1">{benefit.title}</h4>
                       <p className="text-muted-foreground text-xs leading-relaxed">{benefit.description}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
               
-              {/* Yoga Alliance Logos - Centered with consistent spacing */}
-              <div className="flex items-center justify-center gap-10 pt-10">
-                <img src={eryt200Logo} alt="E-RYT 200 Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
-                <img src={yacepLogo} alt="YACEP Yoga Alliance" className="h-16 w-auto opacity-80 hover:opacity-100 transition-opacity" width={115} height={64} />
+              {/* Yoga Alliance Logos */}
+              <div className="flex items-center gap-8">
+                <motion.img 
+                  src={eryt200Logo} 
+                  alt="E-RYT 200 Yoga Alliance" 
+                  className="h-14 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300" 
+                  width={115} 
+                  height={64}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                />
+                <motion.img 
+                  src={yacepLogo} 
+                  alt="YACEP Yoga Alliance" 
+                  className="h-14 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300" 
+                  width={115} 
+                  height={64}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                />
               </div>
             </motion.div>
 
             {/* Right Column - Certificate Image */}
-            <motion.div initial={{
-            opacity: 0,
-            x: 40
-          }} whileInView={{
-            opacity: 1,
-            x: 0
-          }} whileHover={{
-            y: -6,
-            boxShadow: "0 15px 35px -10px rgba(212, 175, 55, 0.3)"
-          }} viewport={{
-            once: true
-          }} transition={{
-            duration: 0.15
-          }} className="lg:col-span-2 relative cursor-pointer transition-all duration-150">
+            <motion.div 
+              initial={{ opacity: 0, x: 40 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.8, delay: 0.3 }} 
+              className="relative order-1 lg:order-2"
+            >
               <div className="relative group cursor-pointer" onClick={() => setIsImageEnlarged(true)}>
                 {/* Decorative background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent rounded-2xl transform rotate-3 scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent rounded-2xl transform rotate-2 scale-105" />
                 
-                <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/20">
+                <motion.div 
+                  className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/20"
+                  whileHover={{ y: -4, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.4)" }}
+                  transition={{ duration: 0.3 }}
+                >
                   <img src={certificateImage} alt="50-Hour Yin Yoga Teacher Training Certificate from AnneHathaYoga" className="w-full h-auto select-none pointer-events-none" draggable={false} loading="lazy" decoding="async" width={364} height={258} onContextMenu={e => e.preventDefault()} />
                   {/* Watermark overlay */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -134,7 +141,7 @@ const CertificationSection = () => {
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                     <ZoomIn className="w-10 h-10 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                </div>
+                </motion.div>
                 
                 {/* Decorative corner accents */}
                 <div className="absolute -bottom-3 -right-3 w-16 h-16 border-r-2 border-b-2 border-gold/40 rounded-br-lg" />
