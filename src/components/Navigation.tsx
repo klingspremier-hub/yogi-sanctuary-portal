@@ -45,7 +45,7 @@ const Navigation = () => {
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="w-full flex justify-between items-center">
-          <a href="#top" className="flex flex-col group shrink-0">
+          <a href="https://yinyogattc.com" target="_blank" rel="noopener noreferrer" className="flex flex-col group shrink-0">
             <img
               alt="AnneHathaYoga"
               className="h-8 md:h-10 w-auto"
