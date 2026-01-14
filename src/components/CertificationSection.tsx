@@ -10,6 +10,11 @@ const CertificationSection = () => {
 
   const benefits = [
     {
+      icon: Clock,
+      title: "50-Hour Training",
+      description: "Authentic Yin Yoga Teacher Training rooted in the functional lineage of Paul Grilley."
+    },
+    {
       icon: Award,
       title: "Yoga Alliance Acknowledged",
       description: "Eligible for Continuing Education (CE) hours"
@@ -18,11 +23,6 @@ const CertificationSection = () => {
       icon: Globe,
       title: "Teach Worldwide",
       description: "Suitable for teaching Yin Yoga classes internationally in studios, retreats, and wellness settings."
-    },
-    {
-      icon: Clock,
-      title: "50-Hour Training",
-      description: "Authentic Yin Yoga Teacher Training rooted in the functional lineage of Paul Grilley."
     }
   ];
 
