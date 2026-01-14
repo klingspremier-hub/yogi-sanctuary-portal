@@ -103,15 +103,15 @@ const Footer = () => {
           duration: 1,
           delay: 0.3
         }}>
-            <a href="https://www.annehatha.com/#about" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
+            <a href="https://yinyogattc.com/#about" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
               About Anne van Keulen
             </a>
             <span className="text-primary-foreground/20 hidden md:inline">•</span>
-            <a href="https://www.annehatha.com/#gallery" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
+            <a href="https://yinyogattc.com/#gallery" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
               Gallery
             </a>
             <span className="text-primary-foreground/20 hidden md:inline">•</span>
-            <a href="https://www.annehatha.com/#reviews" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
+            <a href="https://yinyogattc.com/#testimonials" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors duration-300">
               Student Experiences
             </a>
             <span className="text-primary-foreground/20 hidden md:inline">•</span>
