@@ -1,5 +1,5 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, forwardRef } from "react";
 import { MapPin, Maximize, Wifi, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Import venue images (WebP for faster loading)
@@ -41,7 +41,7 @@ const venueImages = [{
   src: venueBathroom,
   alt: "Elegant bathroom with natural materials"
 }];
-import { forwardRef } from "react";
+
 
 const WaveIcon = forwardRef<SVGSVGElement, { className?: string }>(
   ({ className }, ref) => (
