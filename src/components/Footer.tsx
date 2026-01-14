@@ -136,6 +136,8 @@ const Footer = () => {
             © 2026 AnneHatha Yoga
           </p>
           <div className="flex items-center gap-6 text-[10px] uppercase tracking-widest text-primary-foreground/30">
+            <a href="http://yinyogattc.com/privacy" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Privacy Policy</a>
+            <span>•</span>
             <a href="http://yinyogattc.com/terms" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Terms of Use</a>
             <span>•</span>
             <a href="http://yinyogattc.com/terms#general" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">General Terms & Conditions</a>
