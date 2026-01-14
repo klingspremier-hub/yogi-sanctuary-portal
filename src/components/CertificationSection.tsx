@@ -118,10 +118,10 @@ const CertificationSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex items-center justify-center lg:justify-start gap-4"
+                className="grid grid-cols-2 gap-3"
               >
                 <motion.div 
-                  className="relative px-8 py-4 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex-1 max-w-[180px] flex items-center justify-center"
+                  className="relative py-5 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex items-center justify-center"
                   whileHover={{ 
                     y: -3,
                     boxShadow: "0 12px 30px -6px rgba(0, 0, 0, 0.1), 0 0 40px hsl(42 85% 60% / 0.12)"
@@ -134,14 +134,14 @@ const CertificationSection = () => {
                   <img
                     src={eryt200Logo}
                     alt="E-RYT 200 Yoga Alliance"
-                    className="h-12 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                    className="h-14 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                     width={115}
                     height={64}
                   />
                 </motion.div>
 
                 <motion.div 
-                  className="relative px-8 py-4 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex-1 max-w-[180px] flex items-center justify-center"
+                  className="relative py-5 rounded-xl bg-card/50 border border-gold/10 group cursor-pointer overflow-hidden flex items-center justify-center"
                   whileHover={{ 
                     y: -3,
                     boxShadow: "0 12px 30px -6px rgba(0, 0, 0, 0.1), 0 0 40px hsl(42 85% 60% / 0.12)"
@@ -154,7 +154,7 @@ const CertificationSection = () => {
                   <img
                     src={yacepLogo}
                     alt="YACEP Yoga Alliance"
-                    className="h-12 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                    className="h-14 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                     width={115}
                     height={64}
                   />
