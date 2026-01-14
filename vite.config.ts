@@ -5,8 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Only use subdirectory base path in production build
-  base: mode === 'production' ? '/yin-yoga-teacher-training/spain/sotogrande/may-2026/' : '/',
+  // Use relative base in production so the same build works at domain root AND in a subdirectory.
+  // (Fixes blank screen on https://yogi-sanctuary-portal.lovable.app)
+  base: mode === "production" ? "./" : "/",
   server: {
     host: "::",
     port: 8080,
