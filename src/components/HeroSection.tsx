@@ -15,16 +15,7 @@ const HeroSection = () => {
     }} />
       
       <div className="absolute inset-0 z-0">
-        <img 
-          src={heroImage} 
-          className="w-full h-full object-cover opacity-50 scale-105" 
-          alt="Templo Sotogrande Aerial" 
-          loading="eager" 
-          decoding="async" 
-          fetchPriority="high"
-          width={1521}
-          height={1071}
-        />
+        <img src={heroImage} className="w-full h-full object-cover opacity-50 scale-105" alt="Templo Sotogrande Aerial" loading="eager" decoding="async" fetchPriority="high" width={1521} height={1071} />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/60 via-primary/20 to-primary/90"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-primary/40"></div>
       </div>
@@ -87,7 +78,7 @@ const HeroSection = () => {
             <div className="hidden md:block h-px w-12 bg-gradient-to-l from-transparent to-gold/60" />
           </motion.div>
 
-          <motion.p className="text-primary-foreground/70 text-base md:text-2xl font-light max-w-3xl mx-auto mb-10 md:mb-16 italic font-serif leading-relaxed px-2" initial={{
+          <motion.p className="text-primary-foreground/70 text-base max-w-3xl mx-auto mb-10 md:mb-16 italic font-serif leading-relaxed px-2 md:text-3xl font-normal" initial={{
           opacity: 0,
           y: 20
         }} animate={{
