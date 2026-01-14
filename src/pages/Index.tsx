@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 
@@ -25,6 +25,61 @@ const SectionLoader = () => (
 
 const Index = () => {
   const [selectedPackage, setSelectedPackage] = useState("Shared Room");
+
+  useEffect(() => {
+    let activeInterval: number | null = null;
+
+    const scrollToCurrentHash = (behavior: ScrollBehavior) => {
+      if (activeInterval) {
+        window.clearInterval(activeInterval);
+        activeInterval = null;
+      }
+
+      const hash = window.location.hash;
+      if (!hash || hash === "#") return;
+
+      const id = decodeURIComponent(hash.slice(1));
+      let attempts = 0;
+      const maxAttempts = 60; // ~6s
+
+      activeInterval = window.setInterval(() => {
+        const el = document.getElementById(id);
+
+        if (el) {
+          const nav = document.querySelector("nav") as HTMLElement | null;
+          const offset = nav ? nav.getBoundingClientRect().height + 16 : 96;
+          const top = el.getBoundingClientRect().top + window.scrollY - offset;
+
+          window.scrollTo({ top: Math.max(0, top), behavior });
+
+          if (activeInterval) {
+            window.clearInterval(activeInterval);
+            activeInterval = null;
+          }
+          return;
+        }
+
+        attempts += 1;
+        if (attempts >= maxAttempts && activeInterval) {
+          window.clearInterval(activeInterval);
+          activeInterval = null;
+        }
+      }, 100);
+    };
+
+    // Handle direct links like /#venue (React mounts after load; sections are lazy-loaded).
+    if (window.location.hash) {
+      window.requestAnimationFrame(() => scrollToCurrentHash("auto"));
+    }
+
+    const onHashChange = () => scrollToCurrentHash("smooth");
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      if (activeInterval) window.clearInterval(activeInterval);
+    };
+  }, []);
 
   const handlePackageSelect = (pkg: string) => {
     setSelectedPackage(pkg);
