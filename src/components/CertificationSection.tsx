@@ -168,26 +168,24 @@ const CertificationSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative order-1 lg:order-2"
+              className="relative order-1 lg:order-2 flex items-stretch"
             >
-              <div className="relative group cursor-pointer" onClick={() => setIsImageEnlarged(true)}>
+              <div className="relative group cursor-pointer w-full h-full flex" onClick={() => setIsImageEnlarged(true)}>
                 {/* Decorative background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-gold/10 to-transparent rounded-2xl transform rotate-2 scale-105" />
 
                 <motion.div
-                  className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/20"
+                  className="relative rounded-xl overflow-hidden shadow-2xl shadow-black/20 w-full h-full flex"
                   whileHover={{ y: -4, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.4)" }}
                   transition={{ duration: 0.3 }}
                 >
                   <img
                     src={certificateImage}
                     alt="50-Hour Yin Yoga Teacher Training Certificate from AnneHathaYoga"
-                    className="w-full h-auto select-none pointer-events-none"
+                    className="w-full h-full object-cover select-none pointer-events-none"
                     draggable={false}
                     loading="lazy"
                     decoding="async"
-                    width={364}
-                    height={258}
                     onContextMenu={(e) => e.preventDefault()}
                   />
                   {/* Watermark overlay */}
