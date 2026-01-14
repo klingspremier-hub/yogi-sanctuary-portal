@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Award, Globe, Clock, X, ZoomIn } from "lucide-react";
+import { Award, Globe, Clock, X, ZoomIn, BadgeCheck } from "lucide-react";
 import certificateImage from "@/assets/spain-certificate.png";
 import eryt200Logo from "@/assets/eryt200.png";
 import yacepLogo from "@/assets/yacep.png";
@@ -131,6 +131,11 @@ const CertificationSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute -inset-1 bg-gold/20 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 rounded-xl" />
                   
+                  {/* Badge icon */}
+                  <div className="absolute top-2 right-2 z-20">
+                    <BadgeCheck className="w-5 h-5 text-gold/70 group-hover:text-gold group-hover:scale-110 transition-all duration-300" />
+                  </div>
+                  
                   <img
                     src={eryt200Logo}
                     alt="E-RYT 200 Yoga Alliance"
@@ -151,6 +156,11 @@ const CertificationSection = () => {
                   {/* Badge glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-t from-gold/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute -inset-1 bg-gold/20 blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500 rounded-xl" />
+                  
+                  {/* Badge icon */}
+                  <div className="absolute top-2 right-2 z-20">
+                    <BadgeCheck className="w-5 h-5 text-gold/70 group-hover:text-gold group-hover:scale-110 transition-all duration-300" />
+                  </div>
                   
                   <img
                     src={yacepLogo}
