@@ -81,7 +81,7 @@ const ApplicationForm = ({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://usebasin.com/f/6486224150da", {
+      const response = await fetch("https://usebasin.com/f/7cdaa76d2ac2", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
