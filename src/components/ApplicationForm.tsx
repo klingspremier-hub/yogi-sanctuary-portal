@@ -80,21 +80,46 @@ const ApplicationForm = ({
     setShowGeneralError(false);
     setIsSubmitting(true);
 
-    // Simulate submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    toast({
-      title: "Application Successfully Sent",
-      description: "Thank you for your application for the May 2026 Yin Yoga Teacher Training Immersion. Your application has been received and will be reviewed shortly. You can expect a personal response within 24 hours with the next steps."
-    });
-    setFormData({
-      name: "",
-      lastname: "",
-      email: "",
-      package: "Shared Room"
-    });
-    setErrors({});
-    setTouched({});
-    setIsSubmitting(false);
+    try {
+      const response = await fetch("https://usebasin.com/f/6486224150da", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          lastname: formData.lastname.trim(),
+          email: formData.email.trim(),
+          package: formData.package
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      toast({
+        title: "Application Successfully Sent",
+        description: "Thank you for your application for the May 2026 Yin Yoga Teacher Training Immersion. Your application has been received and will be reviewed shortly. You can expect a personal response within 24 hours with the next steps."
+      });
+      setFormData({
+        name: "",
+        lastname: "",
+        email: "",
+        package: "Shared Room"
+      });
+      setErrors({});
+      setTouched({});
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "There was an error sending your application. Please try again or contact us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const packages = [{
