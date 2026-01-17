@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, Globe, Clock, X, ZoomIn, BadgeCheck } from "lucide-react";
-import certificateImage from "@/assets/spain-certificate.png";
-import eryt200Logo from "@/assets/eryt200.png";
-import yacepLogo from "@/assets/yacep.png";
+import certificateImage from "@/assets/spain-certificate.webp";
+import eryt200Logo from "@/assets/eryt200.webp";
+import yacepLogo from "@/assets/yacep.webp";
 
 const CertificationSection = () => {
   const [isImageEnlarged, setIsImageEnlarged] = useState(false);
@@ -293,6 +293,8 @@ const CertificationSection = () => {
                 draggable={false}
                 loading="lazy"
                 decoding="async"
+                width={800}
+                height={600}
                 onContextMenu={(e) => e.preventDefault()}
               />
               {/* Watermark overlay */}
