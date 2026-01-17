@@ -31,19 +31,19 @@ const HeroSection = () => {
         duration: 1.2,
         ease: [0.16, 1, 0.3, 1]
       }}>
-          <motion.h1 className="font-serif text-4xl sm:text-5xl md:text-[7rem] lg:text-[8.5rem] leading-[1.1] md:leading-[1] text-primary-foreground mb-6 md:mb-10" initial={{
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-[7rem] lg:text-[8.5rem] leading-[1.1] md:leading-[1] text-primary-foreground mb-6 md:mb-10">
+            <span className="block drop-shadow-2xl">50-Hour Yin Yoga</span>
+            <motion.span className="inline-block italic font-light gold-shimmer mt-1 md:mt-2 leading-[1.1] pb-[0.2em] overflow-visible" initial={{
           opacity: 0,
-          y: 40
+          y: 20
         }} animate={{
           opacity: 1,
           y: 0
         }} transition={{
-          duration: 1,
-          delay: 0.3
-        }}>
-            <span className="block drop-shadow-2xl">50-Hour Yin Yoga</span>
-            <span className="inline-block italic font-light gold-shimmer mt-1 md:mt-2 leading-[1.1] pb-[0.2em] overflow-visible">Teacher Training</span>
-          </motion.h1>
+          duration: 0.8,
+          delay: 0.2
+        }}>Teacher Training</motion.span>
+          </h1>
 
           <motion.h2 className="text-primary-foreground/70 text-base md:text-2xl font-extralight tracking-[0.2em] md:tracking-[0.3em] uppercase mb-6 md:mb-10" initial={{
           opacity: 0
