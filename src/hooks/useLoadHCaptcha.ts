@@ -3,9 +3,13 @@ import { useState, useCallback, useEffect, useRef } from "react";
 const useLoadHCaptcha = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
+  const hasTriggeredRef = useRef(false);
 
   const loadScript = useCallback(() => {
+    // Prevent multiple triggers
+    if (hasTriggeredRef.current) return;
+    hasTriggeredRef.current = true;
+
     // Already loaded
     if (window.hcaptcha) {
       setIsLoaded(true);
@@ -18,49 +22,33 @@ const useLoadHCaptcha = () => {
     }
 
     setIsLoading(true);
-    const script = document.createElement("script");
-    script.src = "https://js.hcaptcha.com/1/api.js";
-    script.async = true;
-    script.defer = true;
-    script.onload = () => {
-      setIsLoaded(true);
-      setIsLoading(false);
+    
+    // Use requestIdleCallback to load during idle time, reducing TBT
+    const load = () => {
+      const script = document.createElement("script");
+      script.src = "https://js.hcaptcha.com/1/api.js";
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        setIsLoaded(true);
+        setIsLoading(false);
+      };
+      script.onerror = () => {
+        setIsLoading(false);
+        hasTriggeredRef.current = false; // Allow retry
+      };
+      document.head.appendChild(script);
     };
-    script.onerror = () => {
-      setIsLoading(false);
-    };
-    document.head.appendChild(script);
-  }, []);
 
-  const observe = useCallback((element: HTMLElement | null) => {
-    if (!element) return;
-
-    // If already loaded, no need to observe
-    if (window.hcaptcha) {
-      setIsLoaded(true);
-      return;
+    // Use requestIdleCallback if available, otherwise setTimeout
+    if ('requestIdleCallback' in window) {
+      (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(load);
+    } else {
+      setTimeout(load, 1);
     }
-
-    observerRef.current = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          loadScript();
-          observerRef.current?.disconnect();
-        }
-      },
-      { rootMargin: "400px" } // Start loading when 400px away
-    );
-
-    observerRef.current.observe(element);
-  }, [loadScript]);
-
-  useEffect(() => {
-    return () => {
-      observerRef.current?.disconnect();
-    };
   }, []);
 
-  return { isLoaded, isLoading, loadScript, observe };
+  return { isLoaded, isLoading, loadScript };
 };
 
 export default useLoadHCaptcha;
