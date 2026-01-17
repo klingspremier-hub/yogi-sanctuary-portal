@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { toast } from "@/hooks/use-toast";
 import { Send, Check, AlertCircle } from "lucide-react";
@@ -27,12 +27,12 @@ const ApplicationForm = ({
   selectedPackage
 }: ApplicationFormProps) => {
   const ref = useRef(null);
-  const captchaContainerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-100px"
   });
-  const { isLoaded: isCaptchaLoaded, observe: observeCaptcha } = useLoadHCaptcha();
+  const { isLoaded: isCaptchaLoaded, loadScript: loadCaptcha } = useLoadHCaptcha();
+  const [formInteracted, setFormInteracted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -46,10 +46,13 @@ const ApplicationForm = ({
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [captchaKey, setCaptchaKey] = useState(0);
 
-  // Observe captcha container to lazy-load hCaptcha script
-  useEffect(() => {
-    observeCaptcha(captchaContainerRef.current);
-  }, [observeCaptcha]);
+  // Load hCaptcha when user interacts with form (reduces TBT)
+  const handleFormInteraction = () => {
+    if (!formInteracted) {
+      setFormInteracted(true);
+      loadCaptcha();
+    }
+  };
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -230,6 +233,7 @@ const ApplicationForm = ({
                   ...formData,
                   name: e.target.value
                 })}
+                onFocus={handleFormInteraction}
                 onBlur={() => handleBlur('name')}
                 className={getInputClassName('name')} 
                 placeholder="Enter your first name" 
@@ -252,6 +256,7 @@ const ApplicationForm = ({
                   ...formData,
                   lastname: e.target.value
                 })}
+                onFocus={handleFormInteraction}
                 onBlur={() => handleBlur('lastname')}
                 className={getInputClassName('lastname')} 
                 placeholder="Enter your last name" 
@@ -276,6 +281,7 @@ const ApplicationForm = ({
                 ...formData,
                 email: e.target.value
               })}
+              onFocus={handleFormInteraction}
               onBlur={() => handleBlur('email')}
               className={getInputClassName('email')} 
               placeholder="your@email.com" 
@@ -294,10 +300,13 @@ const ApplicationForm = ({
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {packages.map(option => <label key={option.value} className={`relative flex items-center gap-4 p-5 cursor-pointer border-2 transition-all duration-500 group ${formData.package === option.value ? "border-gold bg-gold/5 shadow-lg" : "border-border/30 hover:border-gold/50 hover:bg-gold/5"}`}>
-                  <input type="radio" name="package" value={option.value} checked={formData.package === option.value} onChange={e => setFormData({
-                ...formData,
-                package: e.target.value
-              })} className="sr-only" />
+                  <input type="radio" name="package" value={option.value} checked={formData.package === option.value} onChange={e => {
+                    handleFormInteraction();
+                    setFormData({
+                      ...formData,
+                      package: e.target.value
+                    });
+                  }} className="sr-only" />
                   <span className={`text-2xl transition-transform duration-300 ${formData.package === option.value ? "text-gold scale-110" : "text-muted-foreground"}`}>
                     {option.icon}
                   </span>
@@ -309,8 +318,8 @@ const ApplicationForm = ({
             </div>
           </div>
 
-          {/* hCaptcha - Lazy loaded */}
-          <div className="mb-8" ref={captchaContainerRef}>
+          {/* hCaptcha - Loaded on form interaction to reduce TBT */}
+          <div className="mb-8">
             {isCaptchaLoaded ? (
               <HCaptcha
                 key={captchaKey}
