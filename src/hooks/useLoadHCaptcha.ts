@@ -1,15 +1,20 @@
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 
 const useLoadHCaptcha = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const hasTriggeredRef = useRef(false);
+  const isInViewportRef = useRef(false);
+  const formInteractedRef = useRef(false);
 
-  const loadScript = useCallback(() => {
-    // Prevent multiple triggers
-    if (hasTriggeredRef.current) return;
-    hasTriggeredRef.current = true;
+  // Check if already loaded on mount
+  useEffect(() => {
+    if (window.hcaptcha) {
+      setIsLoaded(true);
+    }
+  }, []);
 
+  const actuallyLoadScript = useCallback(() => {
     // Already loaded
     if (window.hcaptcha) {
       setIsLoaded(true);
@@ -44,11 +49,34 @@ const useLoadHCaptcha = () => {
     if ('requestIdleCallback' in window) {
       (window as Window & { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(load);
     } else {
-      setTimeout(load, 1);
+      setTimeout(load, 100);
     }
   }, []);
 
-  return { isLoaded, isLoading, loadScript };
+  // Only load when BOTH conditions are met: form is in viewport AND user has interacted
+  const tryLoad = useCallback(() => {
+    if (hasTriggeredRef.current) return;
+    if (isInViewportRef.current && formInteractedRef.current) {
+      hasTriggeredRef.current = true;
+      actuallyLoadScript();
+    }
+  }, [actuallyLoadScript]);
+
+  // Called when form section enters viewport
+  const setInViewport = useCallback((inView: boolean) => {
+    isInViewportRef.current = inView;
+    if (inView) {
+      tryLoad();
+    }
+  }, [tryLoad]);
+
+  // Called when user interacts with form
+  const onFormInteraction = useCallback(() => {
+    formInteractedRef.current = true;
+    tryLoad();
+  }, [tryLoad]);
+
+  return { isLoaded, isLoading, setInViewport, onFormInteraction };
 };
 
 export default useLoadHCaptcha;
