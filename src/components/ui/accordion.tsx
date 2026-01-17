@@ -10,7 +10,12 @@ const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item ref={ref} className={cn("border-b", className)} {...props} />
+  <AccordionPrimitive.Item 
+    ref={ref} 
+    className={cn("border-b", className)} 
+    style={{ contain: 'layout style' }}
+    {...props} 
+  />
 ));
 AccordionItem.displayName = "AccordionItem";
 
@@ -41,7 +46,11 @@ const AccordionContent = React.forwardRef<
   <AccordionPrimitive.Content
     ref={ref}
     className="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-    style={{ contain: 'layout style' }}
+    style={{ 
+      contain: 'layout style paint',
+      willChange: 'height',
+      contentVisibility: 'auto' as React.CSSProperties['contentVisibility']
+    }}
     {...props}
   >
     <div className={cn("pb-4 pt-0", className)}>{children}</div>
