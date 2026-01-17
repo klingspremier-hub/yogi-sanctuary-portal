@@ -333,7 +333,7 @@ const ApplicationForm = ({
 
           <motion.button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !captchaToken}
             className="w-full relative px-4 sm:px-6 py-6 bg-primary text-primary-foreground text-[11px] sm:text-[12px] uppercase tracking-[0.18em] sm:tracking-[0.3em] hover:tracking-[0.18em] sm:hover:tracking-[0.3em] font-bold hover:bg-primary/90 transition-all shadow-xl btn-luxury disabled:opacity-50 flex items-center justify-center group"
             whileHover={{
               scale: 1.02,
