@@ -52,6 +52,8 @@ const Navigation = () => {
               src={logoWhite}
               width={143}
               height={80}
+              loading="lazy"
+              decoding="async"
             />
           </a>
 

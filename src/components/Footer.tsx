@@ -25,7 +25,7 @@ const Footer = () => {
         duration: 1
       }}>
           <a href="https://yinyogattc.com" target="_blank" rel="noopener noreferrer" className="block mb-6">
-            <img src={logoWhite} alt="AnneHathaYoga" className="h-16 md:h-22 w-auto" width={143} height={64} />
+            <img src={logoWhite} alt="AnneHathaYoga" className="h-16 md:h-22 w-auto" width={143} height={64} loading="lazy" decoding="async" />
           </a>
           <p className="text-primary-foreground/40 text-sm font-light tracking-widest uppercase">
             Authentic Yin Yoga Training
