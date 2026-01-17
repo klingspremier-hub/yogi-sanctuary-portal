@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { toast } from "@/hooks/use-toast";
 import { Send, Check, AlertCircle } from "lucide-react";
@@ -31,8 +31,31 @@ const ApplicationForm = ({
     once: true,
     margin: "-100px"
   });
-  const { isLoaded: isCaptchaLoaded, loadScript: loadCaptcha } = useLoadHCaptcha();
-  const [formInteracted, setFormInteracted] = useState(false);
+  
+  // Track when section is in viewport for hCaptcha loading
+  const sectionRef = useRef<HTMLElement>(null);
+  const { isLoaded: isCaptchaLoaded, setInViewport, onFormInteraction } = useLoadHCaptcha();
+  
+  // Use IntersectionObserver to detect when form section is visible
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInViewport(true);
+          }
+        });
+      },
+      { rootMargin: "200px" } // Start loading a bit before visible
+    );
+    
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [setInViewport]);
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -45,14 +68,6 @@ const ApplicationForm = ({
   const [showGeneralError, setShowGeneralError] = useState(false);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [captchaKey, setCaptchaKey] = useState(0);
-
-  // Load hCaptcha when user interacts with form (reduces TBT)
-  const handleFormInteraction = () => {
-    if (!formInteracted) {
-      setFormInteracted(true);
-      loadCaptcha();
-    }
-  };
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -182,7 +197,7 @@ const ApplicationForm = ({
     return `luxury-input ${hasError ? 'border-2 border-destructive ring-2 ring-destructive/20' : ''}`;
   };
 
-  return <section id="apply" className="py-24 md:py-32 luxury-gradient-light texture-overlay relative overflow-hidden">
+  return <section id="apply" ref={sectionRef} className="py-24 md:py-32 luxury-gradient-light texture-overlay relative overflow-hidden">
       {/* Decorative elements */}
       <div className="glow-orb w-80 h-80 -top-40 -right-40 opacity-40" />
       <div className="glow-orb w-64 h-64 bottom-0 -left-32 opacity-30" />
@@ -233,7 +248,7 @@ const ApplicationForm = ({
                   ...formData,
                   name: e.target.value
                 })}
-                onFocus={handleFormInteraction}
+                onFocus={onFormInteraction}
                 onBlur={() => handleBlur('name')}
                 className={getInputClassName('name')} 
                 placeholder="Enter your first name" 
@@ -256,7 +271,7 @@ const ApplicationForm = ({
                   ...formData,
                   lastname: e.target.value
                 })}
-                onFocus={handleFormInteraction}
+                onFocus={onFormInteraction}
                 onBlur={() => handleBlur('lastname')}
                 className={getInputClassName('lastname')} 
                 placeholder="Enter your last name" 
@@ -281,7 +296,7 @@ const ApplicationForm = ({
                 ...formData,
                 email: e.target.value
               })}
-              onFocus={handleFormInteraction}
+              onFocus={onFormInteraction}
               onBlur={() => handleBlur('email')}
               className={getInputClassName('email')} 
               placeholder="your@email.com" 
@@ -301,7 +316,7 @@ const ApplicationForm = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {packages.map(option => <label key={option.value} className={`relative flex items-center gap-4 p-5 cursor-pointer border-2 transition-all duration-500 group ${formData.package === option.value ? "border-gold bg-gold/5 shadow-lg" : "border-border/30 hover:border-gold/50 hover:bg-gold/5"}`}>
                   <input type="radio" name="package" value={option.value} checked={formData.package === option.value} onChange={e => {
-                    handleFormInteraction();
+                    onFormInteraction();
                     setFormData({
                       ...formData,
                       package: e.target.value
