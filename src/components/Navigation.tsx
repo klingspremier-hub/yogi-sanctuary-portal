@@ -1,7 +1,7 @@
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import logoWhite from "@/assets/logo-white.png";
+import logoWhite from "@/assets/logo-white-small.webp";
 
 const NavLink = ({
   href,
