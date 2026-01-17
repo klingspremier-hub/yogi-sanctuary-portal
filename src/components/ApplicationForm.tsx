@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 import { toast } from "@/hooks/use-toast";
 import { Send, Check, AlertCircle } from "lucide-react";
+import HCaptcha from "./HCaptcha";
 
 interface ApplicationFormProps {
   selectedPackage: string;
@@ -12,12 +12,15 @@ interface FormErrors {
   name?: string;
   lastname?: string;
   email?: string;
+  captcha?: string;
 }
 
 const validateEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
+
+const HCAPTCHA_SITE_KEY = "80de2d4a-c34c-4e14-959e-9b58db1ed048";
 
 const ApplicationForm = ({
   selectedPackage
@@ -34,9 +37,11 @@ const ApplicationForm = ({
     email: "",
     package: selectedPackage || "Shared Room"
   });
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [errors, setErrors] = useState<FormErrors>({});
   const [showGeneralError, setShowGeneralError] = useState(false);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [captchaKey, setCaptchaKey] = useState(0);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -54,6 +59,10 @@ const ApplicationForm = ({
     } else if (!validateEmail(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
+
+    if (!captchaToken) {
+      newErrors.captcha = "Please complete the captcha";
+    }
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -64,11 +73,25 @@ const ApplicationForm = ({
     validateForm();
   };
 
+  const handleCaptchaVerify = (token: string) => {
+    setCaptchaToken(token);
+    setErrors(prev => ({ ...prev, captcha: undefined }));
+  };
+
+  const handleCaptchaExpire = () => {
+    setCaptchaToken(null);
+  };
+
+  const resetCaptcha = () => {
+    setCaptchaToken(null);
+    setCaptchaKey(prev => prev + 1);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Mark all fields as touched
-    setTouched({ name: true, lastname: true, email: true });
+    setTouched({ name: true, lastname: true, email: true, captcha: true });
     
     const isValid = validateForm();
     
@@ -91,7 +114,8 @@ const ApplicationForm = ({
           name: formData.name.trim(),
           lastname: formData.lastname.trim(),
           email: formData.email.trim(),
-          package: formData.package
+          package: formData.package,
+          "h-captcha-response": captchaToken
         })
       });
 
@@ -111,12 +135,14 @@ const ApplicationForm = ({
       });
       setErrors({});
       setTouched({});
+      resetCaptcha();
     } catch (error) {
       toast({
         title: "Submission Failed",
         description: "There was an error sending your application. Please try again or contact us directly.",
         variant: "destructive"
       });
+      resetCaptcha();
     } finally {
       setIsSubmitting(false);
     }
@@ -273,6 +299,22 @@ const ApplicationForm = ({
                   {formData.package === option.value && <Check className="absolute right-4 w-4 h-4 text-gold" />}
                 </label>)}
             </div>
+          </div>
+
+          {/* hCaptcha */}
+          <div className="mb-8">
+            <HCaptcha
+              key={captchaKey}
+              siteKey={HCAPTCHA_SITE_KEY}
+              onVerify={handleCaptchaVerify}
+              onExpire={handleCaptchaExpire}
+            />
+            {touched.captcha && errors.captcha && (
+              <p className="text-destructive text-xs mt-3 flex items-center justify-center gap-1">
+                <AlertCircle className="w-3 h-3" />
+                {errors.captcha}
+              </p>
+            )}
           </div>
 
           {/* General error message */}
