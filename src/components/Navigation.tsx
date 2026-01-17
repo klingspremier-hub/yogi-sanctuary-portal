@@ -1,5 +1,5 @@
 import { Menu, X } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import logoWhite from "@/assets/logo-white-small.webp";
 
@@ -38,8 +38,12 @@ const Navigation = () => {
 
   return (
     <>
-      {/* CSS-animated nav for zero main-thread blocking on initial load */}
-      <nav className="fixed w-full z-[90] px-3 py-2 md:px-4 md:py-3 glass-nav animate-nav-slide-in">
+      <motion.nav
+        className="fixed w-full z-[90] px-3 py-2 md:px-4 md:py-3 glass-nav"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
         <div className="w-full flex justify-between items-center">
           <a href="https://yinyogattc.com" target="_blank" rel="noopener noreferrer" className="flex flex-col group shrink-0">
             <img
@@ -85,7 +89,7 @@ const Navigation = () => {
             </button>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>

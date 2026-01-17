@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Mail, Phone, Instagram } from "lucide-react";
-import logoWhite from "@/assets/logo-white.webp";
+import logoWhite from "@/assets/logo-white.png";
 const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
