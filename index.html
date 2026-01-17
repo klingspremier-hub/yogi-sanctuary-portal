@@ -20,14 +20,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
+    <!-- Preconnect for hCaptcha (loaded on-demand) -->
+    <link rel="preconnect" href="https://js.hcaptcha.com" crossorigin />
+    <link rel="preconnect" href="https://hcaptcha.com" crossorigin />
+    <link rel="dns-prefetch" href="https://js.hcaptcha.com" />
+    <link rel="dns-prefetch" href="https://hcaptcha.com" />
+    
+    <!-- Preconnect for Google Tag Manager -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    
     <!-- Preload LCP hero image - using relative path for subdirectory deployment -->
     <link rel="preload" as="image" href="./src/assets/hero-palace-optimized.webp" type="image/webp" fetchpriority="high" />
     
     <!-- Non-blocking font loading -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" media="print" onload="this.media='all'" />
     
-    <!-- hCaptcha -->
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <!-- hCaptcha loaded on-demand via useLoadHCaptcha hook -->
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" />
     </noscript>

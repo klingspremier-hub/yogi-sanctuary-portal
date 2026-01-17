@@ -1,8 +1,9 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { toast } from "@/hooks/use-toast";
 import { Send, Check, AlertCircle } from "lucide-react";
 import HCaptcha from "./HCaptcha";
+import useLoadHCaptcha from "@/hooks/useLoadHCaptcha";
 
 interface ApplicationFormProps {
   selectedPackage: string;
@@ -26,10 +27,12 @@ const ApplicationForm = ({
   selectedPackage
 }: ApplicationFormProps) => {
   const ref = useRef(null);
+  const captchaContainerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, {
     once: true,
     margin: "-100px"
   });
+  const { isLoaded: isCaptchaLoaded, observe: observeCaptcha } = useLoadHCaptcha();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -42,6 +45,11 @@ const ApplicationForm = ({
   const [showGeneralError, setShowGeneralError] = useState(false);
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [captchaKey, setCaptchaKey] = useState(0);
+
+  // Observe captcha container to lazy-load hCaptcha script
+  useEffect(() => {
+    observeCaptcha(captchaContainerRef.current);
+  }, [observeCaptcha]);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -301,14 +309,22 @@ const ApplicationForm = ({
             </div>
           </div>
 
-          {/* hCaptcha */}
-          <div className="mb-8">
-            <HCaptcha
-              key={captchaKey}
-              siteKey={HCAPTCHA_SITE_KEY}
-              onVerify={handleCaptchaVerify}
-              onExpire={handleCaptchaExpire}
-            />
+          {/* hCaptcha - Lazy loaded */}
+          <div className="mb-8" ref={captchaContainerRef}>
+            {isCaptchaLoaded ? (
+              <HCaptcha
+                key={captchaKey}
+                siteKey={HCAPTCHA_SITE_KEY}
+                onVerify={handleCaptchaVerify}
+                onExpire={handleCaptchaExpire}
+              />
+            ) : (
+              <div className="flex justify-center py-4">
+                <div className="w-[303px] h-[78px] bg-muted/30 border border-border/50 rounded flex items-center justify-center">
+                  <span className="text-xs text-muted-foreground">Loading verification...</span>
+                </div>
+              </div>
+            )}
             {touched.captcha && errors.captcha && (
               <p className="text-destructive text-xs mt-3 flex items-center justify-center gap-1">
                 <AlertCircle className="w-3 h-3" />

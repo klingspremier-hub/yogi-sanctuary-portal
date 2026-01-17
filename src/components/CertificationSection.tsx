@@ -142,6 +142,8 @@ const CertificationSection = () => {
                     className="h-14 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                     width={115}
                     height={64}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <span className="relative z-10 text-xs font-medium tracking-wider text-muted-foreground uppercase">E-RYT 200</span>
                 </motion.div>
@@ -168,6 +170,8 @@ const CertificationSection = () => {
                     className="h-14 w-auto relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                     width={115}
                     height={64}
+                    loading="lazy"
+                    decoding="async"
                   />
                   <span className="relative z-10 text-xs font-medium tracking-wider text-muted-foreground uppercase">YACEP</span>
                 </motion.div>
@@ -198,6 +202,8 @@ const CertificationSection = () => {
                     draggable={false}
                     loading="lazy"
                     decoding="async"
+                    width={800}
+                    height={600}
                     onContextMenu={(e) => e.preventDefault()}
                   />
                   {/* Watermark overlay */}

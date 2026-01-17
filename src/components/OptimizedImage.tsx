@@ -5,6 +5,8 @@ interface OptimizedImageProps {
   alt: string;
   className?: string;
   priority?: boolean;
+  width?: number;
+  height?: number;
   onContextMenu?: (e: React.MouseEvent) => void;
   draggable?: boolean;
 }
@@ -14,6 +16,8 @@ const OptimizedImage = ({
   alt,
   className = "",
   priority = false,
+  width,
+  height,
   onContextMenu,
   draggable = true,
 }: OptimizedImageProps) => {
@@ -53,6 +57,8 @@ const OptimizedImage = ({
       onLoad={() => setIsLoaded(true)}
       loading={priority ? "eager" : "lazy"}
       decoding="async"
+      width={width}
+      height={height}
       onContextMenu={onContextMenu}
       draggable={draggable}
     />

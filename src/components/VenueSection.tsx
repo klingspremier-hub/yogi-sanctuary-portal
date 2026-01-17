@@ -167,22 +167,35 @@ const VenueSection = () => {
         }}>
             <div className="aspect-video shadow-2xl relative group overflow-hidden border-8 border-card" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
               <AnimatePresence mode="sync">
-                <motion.img key={currentIndex} src={venueImages[currentIndex].src} className="absolute inset-0 w-full h-full object-cover" alt={venueImages[currentIndex].alt} loading="lazy" decoding="async" initial={{
-                opacity: 0,
-                scale: 1.1,
-                filter: "blur(8px)"
-              }} animate={{
-                opacity: 1,
-                scale: 1,
-                filter: "blur(0px)"
-              }} exit={{
-                opacity: 0,
-                scale: 0.95,
-                filter: "blur(8px)"
-              }} transition={{
-                duration: 1.8,
-                ease: [0.4, 0, 0.2, 1]
-              }} />
+                <motion.img 
+                  key={currentIndex} 
+                  src={venueImages[currentIndex].src} 
+                  className="absolute inset-0 w-full h-full object-cover" 
+                  alt={venueImages[currentIndex].alt} 
+                  loading="lazy" 
+                  decoding="async"
+                  width={1280}
+                  height={720}
+                  initial={{
+                    opacity: 0,
+                    scale: 1.1,
+                    filter: "blur(8px)"
+                  }} 
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    filter: "blur(0px)"
+                  }} 
+                  exit={{
+                    opacity: 0,
+                    scale: 0.95,
+                    filter: "blur(8px)"
+                  }} 
+                  transition={{
+                    duration: 1.8,
+                    ease: [0.4, 0, 0.2, 1]
+                  }} 
+                />
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
