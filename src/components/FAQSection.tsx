@@ -1,3 +1,4 @@
+import { memo, useState, useEffect, useRef } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const faqData = [
@@ -62,9 +63,32 @@ const faqData = [
   },
 ];
 
-const FAQSection = () => {
+const FAQSection = memo(() => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Only render accordion content when section is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="faq"
       aria-labelledby="faq-heading"
       className="relative py-16 md:py-32 luxury-gradient-light texture-overlay overflow-hidden"
@@ -88,24 +112,34 @@ const FAQSection = () => {
           <div className="luxury-divider max-w-md mx-auto" />
         </header>
 
-        {/* Accordion */}
+        {/* Accordion - defer rendering until visible */}
         <div className="max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
-            {faqData.map((item, index) => (
-              <AccordionItem
-                key={index}
-                value={`item-${index}`}
-                className="yin-card-light rounded-lg px-4 md:px-6 border-none"
-              >
-                <AccordionTrigger className="text-left text-primary font-serif text-base md:text-xl hover:no-underline py-4 md:py-5 [&[data-state=open]]:text-accent">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground text-sm md:text-lg pb-4 md:pb-5 leading-relaxed font-normal">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          {isVisible ? (
+            <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
+              {faqData.map((item, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="yin-card-light rounded-lg px-4 md:px-6 border-none"
+                >
+                  <AccordionTrigger className="text-left text-primary font-serif text-base md:text-xl hover:no-underline py-4 md:py-5 [&[data-state=open]]:text-accent">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground text-sm md:text-lg pb-4 md:pb-5 leading-relaxed font-normal">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          ) : (
+            <div className="space-y-3 md:space-y-4">
+              {faqData.slice(0, 3).map((item, index) => (
+                <div key={index} className="yin-card-light rounded-lg px-4 md:px-6 py-4 md:py-5">
+                  <div className="text-primary font-serif text-base md:text-xl">{item.question}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Links */}
@@ -130,6 +164,8 @@ const FAQSection = () => {
       </div>
     </section>
   );
-};
+});
+
+FAQSection.displayName = 'FAQSection';
 
 export default FAQSection;
